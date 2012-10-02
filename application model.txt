@@ -1,0 +1,5 @@
+// This was abandoned for the time being; i may migrate to this model down the road.
+// Each service has one schedule <-> Each schedule belongs to one service
+
+Each service has many checkins <-> Each checkin belongs to one service
+
