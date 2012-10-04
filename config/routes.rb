@@ -1,7 +1,7 @@
 Tattletale::Application.routes.draw do
   resources :services
 
-  match '/:url' => 'services#fetch'
+  match '/:url' => 'services#checkin'
   root :to => 'services#index'
 
   # See how all your routes lay out with "rake routes"

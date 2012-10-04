@@ -21,16 +21,6 @@ class ServicesController < ApplicationController
     end
   end
 
-  def fetch
-    @service = Service.find_by_url(params[:url])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @service }
-    end
-  end
-
-
   # GET /services/new
   # GET /services/new.json
   def new
@@ -87,6 +77,20 @@ class ServicesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to services_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def checkin
+    begin
+      @service = Service.find_by_url!(params[:url])
+      @service.checkins << Checkin.new
+    rescue
+      redirect_to :root, :alert => @service.errors and return
+    end
+
+    respond_to do |format|
+      format.html { head :ok }
       format.json { head :no_content }
     end
   end

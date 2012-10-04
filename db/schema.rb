@@ -11,16 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121002170827) do
+ActiveRecord::Schema.define(:version => 20121004012310) do
+
+  create_table "checkins", :force => true do |t|
+    t.integer  "service_id"
+    t.string   "post"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "schedules", :force => true do |t|
+    t.string   "cron"
+    t.integer  "service_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "services", :force => true do |t|
-    t.string   "title",                         :null => false
+    t.string   "name",                          :null => false
     t.text     "description",                   :null => false
     t.string   "url",                           :null => false
+    t.integer  "schedule_id",                   :null => false
     t.boolean  "active",      :default => true
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
-    t.string   "frequency"
   end
 
 end
