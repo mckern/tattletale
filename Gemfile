@@ -7,6 +7,7 @@ gem 'sqlite3'
 gem 'default_value_for'
 gem 'parse-cron', :require => 'cron_parser'
 
+# Pig-pile of gems used in IRB
 group :development do
   gem 'awesome_print', :require => "ap"
   gem 'hirb'
