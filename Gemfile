@@ -1,7 +1,11 @@
+#ruby=1.9.3-p362
+#ruby-gemset=tattletale
+
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.11'
 gem 'sqlite3'
+gem 'mysql2'
 
 # These are the bits needed to make this run
 gem 'default_value_for'
@@ -11,7 +15,7 @@ gem 'parse-cron', :require => 'cron_parser'
 group :development do
   gem 'awesome_print', :require => "ap"
   gem 'hirb'
-  gem 'irbtools'
+  gem 'irbtools', '= 1.4.0'
   gem 'looksee'
   gem 'net-http-spy'
   gem 'terminal-notifier'

@@ -1,4 +1,5 @@
 Tattletale::Application.routes.draw do
+  resources :schedules
   resources :services
 
   match '/:url' => 'services#checkin'

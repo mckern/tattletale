@@ -4,7 +4,7 @@ class CreateServices < ActiveRecord::Migration
       t.string :name, :null => false
       t.text :description
       t.string :url, :null => false
-      t.integer :schedule_id
+      t.integer :schedule_id, :null => false
       t.boolean :active, :default => true
 
       t.timestamps

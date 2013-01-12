@@ -12,25 +12,38 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
+
   <div class="field">
-    <%= f.label :frequency %><br />
-    <%= f.text_field :frequency_id %>
+    <%= f.label :schedule %><br />
+    <%=
+      collection_select :schedule,
+        :schedule_id,
+        Schedule.find(:all, :order => 'name ASC'),
+        :id,
+        :name,
+        { :selected => @service.schedule_id }
+    -%>
+
   </div>
+
   <div class="field">
     <%= f.label :active %><br />
     <%= f.check_box :active %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

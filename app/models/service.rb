@@ -4,10 +4,10 @@ require 'securerandom'
 class Service < ActiveRecord::Base
   attr_accessible :active, :description, :name, :url, :frequency
 
-  has_one :schedule, :dependent => :destroy
+  belongs_to :schedule
   has_many :checkins, :dependent => :destroy
 
-  default_value_for :url, SecureRandom.urlsafe_base64(12)
+  default_value_for :url, SecureRandom.urlsafe_base64(6)
 
   # Validate that name, description, and url are set
   validates_presence_of :name, :description, :url
@@ -21,4 +21,26 @@ class Service < ActiveRecord::Base
     :with => /^[a-z0-9+\-_.]+$/i,
     :message => "can only contain letters, numbers, and '+, -, _, .'"
 
+  # Figure out the last and next times in this schedule
+  [:last, :next].each do |name|
+    define_method(name) do
+      return CronParser.new(self.cron_string).send(name)
+    end
+  end
+
+  # If there haven't been any check-ins, return false
+  def has_checked_in?
+    self.checkins.empty? ? false : true
+  end
+
+  # Return an activerecord DateTime object corresponding
+  # to the time the service last checked in
+  def last_seen
+    return nil if self.checkins.empty?
+    self.checkins.sort_by{|checkin| checkin.updated_at}.last.created_at
+  end
+
+  def start_time
+    self.checkins.first ? self.checkins.first.created_at : nil
+  end
 end

@@ -1,7 +1,7 @@
 class CreateCheckins < ActiveRecord::Migration
   def change
     create_table :checkins do |t|
-      t.integer :service_id
+      t.integer :service_id, :null => false
       t.string :status
 
       t.timestamps
