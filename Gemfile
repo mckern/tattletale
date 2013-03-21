@@ -1,22 +1,23 @@
-#ruby=1.9.3-p362
+#ruby-1.9.3-p385-railsexpress
 #ruby-gemset=tattletale
 
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '~> 3.2.0'
 gem 'sqlite3'
 gem 'mysql2'
 
 # These are the bits needed to make this run
 gem 'default_value_for'
 gem 'parse-cron', :require => 'cron_parser'
+gem 'jquery-rails'
 
 # Pig-pile of gems used in IRB
 group :development do
   gem 'awesome_print', :require => "ap"
   gem 'hirb'
   gem 'irbtools', '= 1.4.0'
-  gem 'looksee'
+  # gem 'looksee'
   gem 'net-http-spy'
   gem 'terminal-notifier'
   gem 'what_methods'
@@ -34,20 +35,3 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

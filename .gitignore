@@ -16,3 +16,9 @@
 
 # Ignore OS X metadata
 .DS_Store
+
+# Ignore my own notes about stuff
+# or development things
+Gemfile.lock
+outline.txt
+todo.md

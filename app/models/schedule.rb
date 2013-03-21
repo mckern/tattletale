@@ -2,6 +2,8 @@ require 'cron_parser'
 class Schedule < ActiveRecord::Base
   attr_accessible :name, :description, :cron_string
 
+  accepts_nested_attributes_for :services
+
   has_one :user
   has_many :services
 
