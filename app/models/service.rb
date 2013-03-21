@@ -2,7 +2,7 @@ require 'cron_parser'
 require 'securerandom'
 
 class Service < ActiveRecord::Base
-  attr_accessible :active, :description, :name, :url, :frequency
+  attr_accessible :active, :description, :name, :url, :frequency, :schedule_id
 
   belongs_to :schedule
   has_many :checkins, :dependent => :destroy

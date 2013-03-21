@@ -27,9 +27,9 @@
   </div>
 
   <div class="field">
-    <%= f.label :schedule %><br />
+    <%= f.label :schedule_id %><br />
     <%=
-      collection_select :schedule,
+      collection_select :service,
         :schedule_id,
         Schedule.find(:all, :order => 'name ASC'),
         :id,
