@@ -12,6 +12,8 @@
  *= require_tree .
  */
 
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
+
 body{
   background: #666 url(/assets/bg-grid.png) repeat !important;
   color: #eee;
@@ -19,30 +21,54 @@ body{
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
+  margin: 0;
 }
 
 #container{
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
+  width: 600px;
+}
+
+#header{
+  background: #fff;
+  text-align: left;
+  padding: .25em 1.0em;
+  margin: 0;
+  color: #000;
 }
 
 #footer{
   color: #000;
   margin-left: auto;
   margin-right: auto;
-  background-color: #eee;
   text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
   padding: .25em 1.0em;
+  margin: 0;
+}
+
+#footer a, #header a{
+  color: #000;
+  text-decoration: none;
+  &:visited {
+    color: #000;
+    background: inherit;
+  }
+  &:hover {
+    color: #000;
+    background: inherit;
+  }
 }
 
 div#form{
-  width: 350px;
+  width: 200px;
   margin-left: auto;
   margin-right: auto;
+}
+
+form input, form label{
+  display: block !important;
+  clear: both;
 }
 
 form input[type=text] {
@@ -58,4 +84,33 @@ form label {
   padding-top: 5px;
   text-align: left;
   width: 200px;
+}
+
+span.logo{
+  font-size: 24px;
+  padding: 0 .50em;
+  line-height: 1.50em;
+}
+
+div#header{
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 400;
+}
+
+div#header h1{
+  border: 0;
+  float: left;
+  display: inline;
+  vertical-align: bottom;
+}
+
+div#header ul{
+  list-style-type: none;
+  text-align: right;
+}
+
+div#header ul li{
+  border: 1px solid black;
+  display: inline;
+  padding: 0 .25em;
 }

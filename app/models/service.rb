@@ -7,13 +7,13 @@ class Service < ActiveRecord::Base
   belongs_to :user
   has_many :checkins, :dependent => :destroy
 
-  default_value_for :url, SecureRandom.urlsafe_base64(6)
+  default_value_for :url, SecureRandom.urlsafe_base64(16)
 
   # Validate that name, description, and url are set
   validates_presence_of :name, :description, :url
   validates_uniqueness_of :name, :url
   validates_length_of :url,
-    :minimum => 6,
+    :minimum => 12,
     :maximum => 24,
     :allow_blank => false
 

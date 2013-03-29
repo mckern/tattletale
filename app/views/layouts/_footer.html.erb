@@ -1,7 +1,3 @@
 <div id="footer">
-  <% unless @user.nil? or @user.name.nil? %>
-    <%= @user.name %> (<%= @user.email %>) |
-    <%= link_to("Log Out", :logout, :class => "logout", :method => :destroy) %> |
-  <% end %>
   <%= Rails.configuration.version %>
 </div>
