@@ -1,6 +1,13 @@
 Tattletale::Application.routes.draw do
   resources :schedules
   resources :services
+  resources :sessions
+  resources :users
+
+  get '/login' => 'sessions#new', :as => :login
+  match '/logout' => 'sessions#destroy', :as => :logout
+
+  get 'signup', to: 'users#new', as: 'signup'
 
   match '/:url' => 'services#checkin'
   root :to => 'services#index'

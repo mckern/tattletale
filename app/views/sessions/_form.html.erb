@@ -1,0 +1,15 @@
+<div id="loginForm" class="sessions">
+  <%= form_tag :action => 'create' do %>
+
+    <%= label_tag :email, "What is your email address?" %>
+    <%= text_field_tag :email, nil,
+          :placeholder => 'squeeler@tattletale.info',
+          :class => 'login text',
+          :width => 200
+    %>
+    <%= submit_tag 'Continue', :class => 'submit button login' %>
+
+  <% end %>
+
+  <p>Not a current user? <%= link_to "Create a new account", :signup %></p>
+</div>

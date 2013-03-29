@@ -7,4 +7,13 @@ class User < ActiveRecord::Base
   # Validate that name, description, and url are set
   validates_presence_of :name, :email
   validates_uniqueness_of :email
+
+  protected
+
+  def self.authenticate(email)
+    @user = User.find_by_email(email)
+    return @user unless @user.nil?
+    return false
+  end
+
 end

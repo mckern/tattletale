@@ -1,0 +1,6 @@
+<div id="footer">
+  <% unless session[:user].nil? %>
+    <%= session[:user].name %> (<%= session[:user].email %>) |
+    <%= link_to("Log Out", :logout, :class => "logout", :method => :destroy) %>
+  <% end %>
+</div>
