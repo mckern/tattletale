@@ -12,6 +12,8 @@ gem 'default_value_for'
 gem 'parse-cron', :require => 'cron_parser'
 gem 'jquery-rails'
 
+gem 'unicorn'
+
 # Pig-pile of gems used in IRB
 group :development do
   gem 'awesome_print', :require => "ap"

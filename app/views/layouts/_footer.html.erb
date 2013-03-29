@@ -1,6 +1,7 @@
 <div id="footer">
-  <% unless session[:user].nil? %>
-    <%= session[:user].name %> (<%= session[:user].email %>) |
-    <%= link_to("Log Out", :logout, :class => "logout", :method => :destroy) %>
+  <% unless @user.nil? or @user.name.nil? %>
+    <%= @user.name %> (<%= @user.email %>) |
+    <%= link_to("Log Out", :logout, :class => "logout", :method => :destroy) %> |
   <% end %>
+  <%= Rails.configuration.version %>
 </div>

@@ -1,0 +1,13 @@
+<div id="service" class="service <%= service.name -%> service_<%= service.active -%>">
+  <h2><%= service.name %></h2>
+  <div class="right">
+    next run: <%= service.next.strftime('%D %R') %>
+    <% if service.checkins.empty? %>
+      | <span class="red">no check-ins yet</span>
+    <% else %>
+      | <span class="green">last seen <%= service.last_seen.strftime('%D %R') %></span>
+    <% end %>
+    | <%= link_to 'edit', edit_service_path(service) %>
+  </div>
+</div>
+

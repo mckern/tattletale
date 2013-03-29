@@ -27,16 +27,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :schedule_id %><br />
-    <%=
-      collection_select :service,
-        :schedule_id,
-        Schedule.find(:all, :order => 'name ASC'),
-        :id,
-        :name,
-        { :selected => @service.schedule_id }
-    -%>
-
+    <%= f.label :cron_string %><br />
+    <%= f.text_field :cron_string %>
   </div>
 
   <div class="field">

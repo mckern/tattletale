@@ -1,5 +1,5 @@
 Tattletale::Application.routes.draw do
-  resources :schedules
+  resources :dashboard
   resources :services
   resources :sessions
   resources :users
@@ -10,7 +10,7 @@ Tattletale::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
 
   match '/:url' => 'services#checkin'
-  root :to => 'services#index'
+  root :to => redirect('/dashboard')
 
   # See how all your routes lay out with "rake routes"
 

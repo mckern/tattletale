@@ -2,9 +2,9 @@ require 'cron_parser'
 require 'securerandom'
 
 class Service < ActiveRecord::Base
-  attr_accessible :active, :description, :name, :url, :frequency, :schedule_id
+  attr_accessible :active, :description, :name, :cron_string, :url
 
-  belongs_to :schedule
+  belongs_to :user
   has_many :checkins, :dependent => :destroy
 
   default_value_for :url, SecureRandom.urlsafe_base64(6)
@@ -20,6 +20,8 @@ class Service < ActiveRecord::Base
   validates_format_of :url,
     :with => /^[a-z0-9+\-_.]+$/i,
     :message => "can only contain letters, numbers, and '+, -, _, .'"
+
+  validates_presence_of :cron_string
 
   # Figure out the last and next times in this schedule
   [:last, :next].each do |name|

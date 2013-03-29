@@ -2,13 +2,15 @@
 class SessionsController < ApplicationController
   # No need to filter the session controller
   skip_before_filter :logged_in?
+  skip_before_filter :set_user
 
   # Make new session
   def create
     # Does the user exist in the database already?
     @user = User.authenticate(params[:email])
+
     if @user
-      session[:user] = @user
+      session[:user_email] = @user.email
       redirect_to :root and return
     else
       # The user wasn't found; see if they want to sign up
@@ -18,18 +20,12 @@ class SessionsController < ApplicationController
 
   # Remove the user id from the session
   def destroy
-    # Stupid kludge to keep the User tracking table relatively clean;
-    #=> Roughly the same function will be performed periodically by `Colin`.
-    # if session[:user].exists_in_database?
-    #       @user = User.find session[:user].id
-    #       @user.destroy if @user.has_no_bundles?
-    #     end
     reset_session
     redirect_to :login
   end
   alias :delete :destroy
 
   def index
-    redirect_to :root
+    # redirect_to :root
   end
 end

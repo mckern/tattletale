@@ -1,0 +1,18 @@
+<% unless notice.nil? %>
+  <div id="notice">
+    <h2 class="notice"><%= notice %><h2>
+  </div>
+<% end %>
+
+<% if @services.empty? %>
+  <p>
+    You don't have any services defined.
+    <%=
+      link_to "Do you want to create a new service?",
+        :controller => 'services',
+        :action => 'new'
+    %>
+  </p>
+<% else %>
+  <%= render :partial => 'service', :collection => @services %>
+<% end %>

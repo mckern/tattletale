@@ -2,13 +2,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
 
-  skip_before_filter :logged_in?, :only => :new
+  skip_before_filter :logged_in?, :only => [:new, :create]
+  skip_before_filter :set_user, :only => [:new, :create]
 
   def index
     @users = User.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.json { render json: @users }
     end
   end
@@ -30,7 +31,7 @@ class UsersController < ApplicationController
     @user = User.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html
       format.json { render json: @user }
     end
   end
@@ -47,7 +48,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html {
+          session[:user_email] = @user.email
+          redirect_to :root, notice: 'User was successfully created.'
+        }
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
