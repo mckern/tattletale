@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  # GET /users
-  # GET /users.json
-
   skip_before_filter :logged_in?, :only => [:new, :create]
   skip_before_filter :set_user, :only => [:new, :create]
 

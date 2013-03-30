@@ -1,13 +1,13 @@
-<div id="service" class="service <%= service.name -%> service_<%= service.active -%>">
+<div id="service" class="service <%= service.name -%> service_<%= service.status -%>">
   <h2><%= service.name %></h2>
-  <div class="right">
+  <span class="meta">
     next run: <%= service.next.strftime('%D %R') %>
-    <% if service.checkins.empty? %>
-      | <span class="red">no check-ins yet</span>
+    <% if service.has_checked_in? %>
+      | last seen <%= service.last_seen.strftime('%D %R') %>
     <% else %>
-      | <span class="green">last seen <%= service.last_seen.strftime('%D %R') %></span>
+      | no check-ins yet
     <% end %>
-    | <%= link_to 'edit', edit_service_path(service) %>
-  </div>
+  </span>
+  <span class="edit"><%= link_to 'edit', edit_service_path(service) %></span>
 </div>
 

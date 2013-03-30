@@ -23,6 +23,10 @@ class Service < ActiveRecord::Base
 
   validates_presence_of :cron_string
 
+  # Scopes for convenience
+  scope :descending, order("services.name DESC")
+  scope :ascending, order("services.name")
+
   # Figure out the last and next times in this schedule
   [:last, :next].each do |name|
     define_method(name) do
@@ -33,6 +37,22 @@ class Service < ActiveRecord::Base
   # If there haven't been any check-ins, return false
   def has_checked_in?
     self.checkins.empty? ? false : true
+  end
+
+  # If there haven't been any check-ins, return false
+  def status
+    return "not_started" unless self.has_checked_in?
+    return "on_time" unless self.late?
+    return "late"
+  end
+
+  def late?
+    return false unless self.has_checked_in?
+
+    # This is the number of seconds between each run
+    threshold = (self.next - self.last).to_i
+    # Math!
+    ( self.last - self.last_seen ).to_i > threshold
   end
 
   # Return an activerecord DateTime object corresponding

@@ -34,4 +34,9 @@ Tattletale::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Add fonts to the asset path
+  config.assets.paths << "#{Rails.root}/app/assets/fonts"
+config.assets.precompile += %w( .svg .eot .woff .ttf )
+
 end

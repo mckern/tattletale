@@ -14,5 +14,5 @@
     %>
   </p>
 <% else %>
-  <%= render :partial => 'service', :collection => @services %>
+  <%= render :partial => 'service', :collection => @services.ascending %>
 <% end %>

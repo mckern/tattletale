@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
-  # GET /services
-  # GET /services.json
+  skip_before_filter :logged_in?, :only => :checkin
+  skip_before_filter :set_user, :only => :checkin
+
   def index
     @services = @user.services.reload
 
@@ -83,7 +84,7 @@ class ServicesController < ApplicationController
 
   def checkin
     begin
-      @service = @user.services.find_by_url!(params[:url])
+      @service = Service.find_by_url!(params[:url])
       @service.checkins << Checkin.new
     rescue
       redirect_to :root, :alert => @service.errors and return

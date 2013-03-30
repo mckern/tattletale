@@ -8,7 +8,7 @@ div.service{
   margin-right: auto;
 
   width: 500px;
-  padding: 1em 16px;
+  padding: 0.50em 16px;
   text-align: left;
 
   background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
@@ -22,33 +22,51 @@ div.service{
 }
 
 div.service h2{
-  display: inline;
+  margin: 0;
   clear: none;
-  padding: 1em 0 1em 32px;
+  padding: 0.25em 0 0.25em 32px;
   line-height: 1em;
 }
 
-div.service_true h2 {
+div.service_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+div.service_not_started h2 {
+  background: url(/assets/grey.png) no-repeat left center;
+}
+
+div.service_on_time h2 {
   background: url(/assets/green.png) no-repeat left center;
 }
 
-div.service_false h2 {
+div.service_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
+div.service_late h2 {
   background: url(/assets/red.png) no-repeat left center;
 }
 
+span.meta {
+  padding: 0.25em;
+  display: inline-block;
+}
+
 span.edit {
-  display: block;
+  display: inline-block;
   float: right;
+  font-weight: 800;
 }
 
-span.edit a:active {
+span.edit a {
+  color: #4e504f;
   background: transparent;
-}
-
-span.edit a:hover {
-  background: transparent;
-}
-
-span.edit a:visited {
-  background: transparent;
+  text-decoration: none;
+  &:active {
+    color: #4e504f;
+    background: transparent;
+  }
+  &:hover {
+    color: #4e504f;
+    background: transparent;
+  }
+  &:visited {
+    color: #4e504f;
+    background: transparent;
+  }
 }

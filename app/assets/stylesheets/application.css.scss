@@ -12,6 +12,17 @@
  *= require_tree .
  */
 
+@font-face {
+  font-family: 'ChunkFiveRegular';
+  src: url('Chunkfive-webfont.eot');
+  src: url('Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+       url('Chunkfive-webfont.woff') format('woff'),
+       url('Chunkfive-webfont.ttf') format('truetype'),
+       url('Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 
 body{
@@ -28,23 +39,16 @@ body{
   margin-left: auto;
   margin-right: auto;
   width: 600px;
+  border-left: #fff 2px solid;
+  border-right: #fff 2px solid;
 }
 
-#header{
+#header, #footer{
   background: #fff;
   text-align: left;
   padding: .25em 1.0em;
   margin: 0;
   color: #000;
-}
-
-#footer{
-  color: #000;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-  padding: .25em 1.0em;
-  margin: 0;
 }
 
 #footer a, #header a{
@@ -87,13 +91,15 @@ form label {
 }
 
 span.logo{
-  font-size: 24px;
+  font-size: 2.50em;
   padding: 0 .50em;
   line-height: 1.50em;
+  display: inline-block;
+  float: left;
 }
 
 div#header{
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;
   font-weight: 400;
 }
 
@@ -110,7 +116,16 @@ div#header ul{
 }
 
 div#header ul li{
-  border: 1px solid black;
   display: inline;
-  padding: 0 .25em;
+  padding: 0 0.50em;
 }
+
+.small { font-size: 0.75em; }
+.large { font-size: 1.50em }
+
+.red { color: #f00; }
+.green { color: #0f0; }
+.black { color: #000; }
+
+.left { text-align: left !important; }
+.right { text-align: right !important; }
