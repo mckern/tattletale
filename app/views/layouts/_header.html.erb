@@ -1,7 +1,7 @@
 <div id="header">
   <span class="logo"><%= link_to("tattletale", :root) %></span>
   <% unless @user.nil? or @user.name.nil? %>
-  <ul id="navigation">
+  <ul id="navigation" class="navigation">
     <li><%= link_to("Create new service", :controller => :services, :action => :new) %></li>
     <li><%= link_to("Edit user account", :account) %></li>
     <li><%= link_to("Log out", :logout, :class => "logout", :method => :destroy) %></li>

@@ -1,7 +1,7 @@
 <%= form_for(@service) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+      <h2><%= pluralize(@service.errors.count, "error") %> kept this service from being saved:</h2>
 
       <ul>
       <% @service.errors.full_messages.each do |msg| %>
@@ -12,27 +12,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
 
   <div class="field">
-    <%= f.label :url %><br />
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
 
   <div class="field">
-    <%= f.label :cron_string %><br />
+    <%= f.label :cron_string %>
     <%= f.text_field :cron_string %>
   </div>
 
   <div class="field">
-    <%= f.label :active %><br />
+    <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
 

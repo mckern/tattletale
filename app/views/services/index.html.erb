@@ -1,7 +1,2 @@
-<% unless notice.nil? %>
-  <div id="notice">
-    <h2 class="notice"><%= notice %><h2>
-  </div>
-<% end %>
-
+<%= render "layouts/notice" %>
 <%= render :partial => 'service', :collection => @services %>

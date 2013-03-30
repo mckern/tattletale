@@ -32,24 +32,51 @@ body{
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  margin: 0;
+  margin: 2em;
 }
 
-#container{
-  margin: 2em;
+#container, #header, #footer{
+  margin: 0 2em;
   margin-left: auto;
   margin-right: auto;
   width: 600px;
+  padding: 10px;
+}
+
+#container{
   border-left: #fff 2px solid;
   border-right: #fff 2px solid;
+  background-color: rgba(0,0,0,0.30);
+
+}
+
+#container h2{
+  margin: 0;
 }
 
 #header, #footer{
+  border: #fff 2px solid;
   background: #fff;
-  text-align: left;
-  padding: .25em 1.0em;
-  margin: 0;
   color: #000;
+  text-align: left;
+}
+
+#header{
+  -webkit-border-top-left-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+#footer{
+  -webkit-border-bottom-left-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  -moz-border-radius-bottomright: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 #footer a, #header a{
@@ -63,6 +90,17 @@ body{
     color: #000;
     background: inherit;
   }
+}
+
+div#header ul{
+  list-style-type: none;
+  text-align: right;
+  float: right;
+}
+
+div#header ul li{
+  display: inline;
+  padding: 0 0.50em;
 }
 
 div#form{
@@ -91,34 +129,13 @@ form label {
   width: 200px;
 }
 
-span.logo{
+.logo{
   font-size: 2.50em;
   padding: 0 .50em;
   line-height: 1.50em;
-  display: inline-block;
-  float: left;
-}
-
-div#header{
+  display: inline !important;
   font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;
   font-weight: 400;
-}
-
-div#header h1{
-  border: 0;
-  float: left;
-  display: inline;
-  vertical-align: bottom;
-}
-
-div#header ul{
-  list-style-type: none;
-  text-align: right;
-}
-
-div#header ul li{
-  display: inline;
-  padding: 0 0.50em;
 }
 
 .small { font-size: 0.75em; }

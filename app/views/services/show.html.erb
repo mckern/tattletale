@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Name:</b>
   <%= @service.name %>
@@ -12,7 +10,7 @@
 
 <p>
   <b>Url:</b>
-  <%= @service.url %>
+  <%= logger.debug(puts request.methods) %>
 </p>
 
 <p>
@@ -25,7 +23,3 @@
   <b>Active:</b>
   <%= @service.active %>
 </p>
-
-
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>

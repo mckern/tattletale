@@ -2,15 +2,15 @@
 <html>
 <head>
   <title>Tattletale</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render "layouts/header" %>
   <div id="container">
-    <%= render "layouts/header" %>
     <%= yield %>
-    <%= render "layouts/footer" %>
   </div>
+  <%= render "layouts/footer" %>
 </body>
 </html>

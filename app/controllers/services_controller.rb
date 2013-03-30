@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @services = @user.services.find(params[:id])
+    @service = @user.services.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
