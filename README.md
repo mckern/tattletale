@@ -22,7 +22,7 @@ exit 0
 
 Tattletale is licensed under the MIT license, and it's a work in progress. It was written to scratch an itch, and as such it has some rough edges. Here's the pending To-Do list:
 
-* Tests... because I sort of punted on those.
+* Tests... because I sort of punted on those
 * Output Service metadata in json
 * Adapt Omniauth for pluggable authentication
 * Retention plan for service check-ins
