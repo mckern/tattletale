@@ -26,4 +26,5 @@ Tattletale is licensed under the MIT license, and it's a work in progress. It wa
 * Output Service metadata in json
 * Adapt Omniauth for pluggable authentication
 * Retention plan for service check-ins
+* Verify that generated service URLs are truly unique
 * Spit & polish
