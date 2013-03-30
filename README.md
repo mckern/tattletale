@@ -3,8 +3,11 @@
 Question: How do you **know** a cronjob finished?
 Better yet, how do you know that ALL of your cronjobs finished? Most of the time, you just don't. Sure, cron sends some emails but most admins file those in the bitbucket. Most of the time we find out that a cronjob failed because whatever we were counting on it doing didn't happen.
 
+![Tattletale screenshot](/doc/screenshots/tattletale.jpg?raw=true)
+
 And thus at [Monitorama 2013](http://monitorama.com) hackathon, Tattletale was born. Register your job with Tattletale, call the unique URL Tattletale provides at the end of your job (if it completes successfully, of course), and Tattletale does the rest.
 
+Here's an example in Bash:
 ```bash
 curl -L http://tattletale.mydomain.local/billyquizboy
 ```
