@@ -1,0 +1,20 @@
+# How to use:
+# 1. copy file as tattletale.yml
+# 2. Replace 'localhost' and/or relative URL root with your domain
+# 3. Replace email_from
+
+production: &base
+  tattletale:
+    # Web server settings
+    host: localhost
+    port: 80
+    https: false
+    # Uncomment and customize to run in non-root path
+    # relative_url_root: /tattletale
+    email_from: squeeler@tattletale.info
+
+development:
+  <<: *base
+
+test:
+  <<: *base
