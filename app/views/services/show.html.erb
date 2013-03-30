@@ -1,25 +1,16 @@
-<p>
-  <b>Name:</b>
-  <%= @service.name %>
-</p>
+<div id="show_service" class="show service">
+  <h2><%= @service.name %></h2>
+  <h3>Status: <%= @service.status %></h3>
+  <p><%= @service.description %></p>
 
-<p>
-  <b>Description:</b>
-  <%= @service.description %>
-</p>
+  <p>
+    <b>Service URL:</b>
+    <%= "#{root_url}#{@service.url}" %>
+  </p>
 
-<p>
-  <b>Url:</b>
-  <%= logger.debug(puts request.methods) %>
-</p>
-
-<p>
-  <b>Next run:</b>
-  <%= @service.next %>
-</p>
-
-
-<p>
-  <b>Active:</b>
-  <%= @service.active %>
-</p>
+  <p>
+    <b>Next scheduled run:</b>
+    <%= @service.next.strftime(date_time) %>
+  </p>
+  <span class="edit"><%= link_to 'edit', edit_service_path(@service), :class => "edit" %></span>
+</div>

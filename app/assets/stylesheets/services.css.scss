@@ -28,8 +28,12 @@ div.service h2{
   line-height: 1em;
 }
 
-div.service_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-div.service_not_started h2 {
+div.service.show h2{
+  padding: 0.25em 0;
+}
+
+div.service_not_started, div.service_paused { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+div.service_not_started h2, div.service_paused h2 {
   background: url(/assets/grey.png) no-repeat left center;
 }
 
@@ -53,7 +57,7 @@ span.edit {
   font-weight: 800;
 }
 
-span.edit a {
+a.edit, a.show {
   color: #4e504f;
   background: transparent;
   text-decoration: none;

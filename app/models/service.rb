@@ -41,6 +41,7 @@ class Service < ActiveRecord::Base
 
   # If there haven't been any check-ins, return false
   def status
+    return "paused" unless self.active?
     return "not_started" unless self.has_checked_in?
     return "on_time" unless self.late?
     return "late"

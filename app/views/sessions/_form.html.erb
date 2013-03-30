@@ -3,7 +3,7 @@
 
     <%= label_tag :email, "What is your email address?" %>
     <%= text_field_tag :email, nil,
-          :placeholder => 'squeeler@tattletale.info',
+          :placeholder => Rails.configuration.email_from,
           :class => 'login text'
     %>
     <%= submit_tag 'Sign-in', :class => 'submit button login' %>

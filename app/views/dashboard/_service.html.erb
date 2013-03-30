@@ -1,13 +1,13 @@
 <div id="service" class="service <%= service.name -%> service_<%= service.status -%>">
-  <h2><%= service.name %></h2>
+  <h2><%= link_to service.name, service_path(service), :class => "show service" %></h2>
   <span class="meta">
-    next run: <%= service.next.strftime('%D %R') %>
+    next run: <%= service.next.strftime(date_time) %>
     <% if service.has_checked_in? %>
-      | last seen <%= service.last_seen.strftime('%D %R') %>
+      | last seen <%= service.last_seen.strftime(date_time) %>
     <% else %>
       | no check-ins yet
     <% end %>
   </span>
-  <span class="edit"><%= link_to 'edit', edit_service_path(service) %></span>
+  <span class="edit"><%= link_to 'edit', edit_service_path(service), :class => "edit" %></span>
 </div>
 
