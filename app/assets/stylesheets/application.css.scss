@@ -35,7 +35,7 @@ body{
   margin: 2em;
 }
 
-#container, #header, #footer{
+#container{
   margin: 0 2em;
   margin-left: auto;
   margin-right: auto;
@@ -46,17 +46,23 @@ body{
 #container{
   border-left: #fff 2px solid;
   border-right: #fff 2px solid;
-  background-color: rgba(0,0,0,0.30);
-
+  background-color: #fff;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
-#container h2{
-  margin: 0;
+#content{
+  padding: 1em;
+  background: #555 url(/assets/bg-grid_tinted.png) repeat !important;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 #header, #footer{
-  border: #fff 2px solid;
-  background: #fff;
+  border: none;
+  background: none;
   color: #000;
   text-align: left;
 }

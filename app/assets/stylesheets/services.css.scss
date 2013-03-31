@@ -19,6 +19,10 @@ div.service{
   box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
   color: #4e504f;
   text-shadow: 0 1px 2px #ddd;
+
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
 
 div.service h2{
@@ -28,12 +32,40 @@ div.service h2{
   line-height: 1em;
 }
 
-div.service.show h2{
-  padding: 0.25em 0;
+div.service.show h2 { padding: 0.25em 0; }
+
+div.service.show span#actions {
+  float: right;
 }
 
-div.service_not_started, div.service_paused { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-div.service_not_started h2, div.service_paused h2 {
+div.service p.description{
+  margin: 2em 0 1em;
+}
+
+span#actions h3{
+  margin: 0;
+  padding: 0;
+}
+
+span#actions ul.actions {
+  list-style-type: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+span#actions ul.actions li{
+  display: inline;
+  padding: 0 0.50em;
+}
+
+div.service_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
+div.service_paused h2 {
+  background: url(/assets/grey.png) no-repeat left center;
+}
+
+div.service_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+div.service_not_started h2 {
   background: url(/assets/grey.png) no-repeat left center;
 }
 
@@ -57,7 +89,7 @@ span.edit {
   font-weight: 800;
 }
 
-a.edit, a.show {
+div.service a, a.edit, a.show {
   color: #4e504f;
   background: transparent;
   text-decoration: none;
