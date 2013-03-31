@@ -14,7 +14,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    @service = @user.services.find(params[:id])
+    @service = @user.services.find_by_id!(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -79,6 +79,21 @@ class ServicesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to services_url }
       format.json { head :no_content }
+    end
+  end
+
+  def toggle
+    @service = @user.services.find_by_id!(params[:id])
+    @service.toggle 'active'
+
+    respond_to do |format|
+      if @service.update_attributes(params[:service])
+        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @service.errors, status: :unprocessable_entity }
+      end
     end
   end
 

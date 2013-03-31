@@ -8,6 +8,8 @@ Tattletale::Application.routes.draw do
 
   get '/signup', to: 'users#new', :as => 'signup'
 
+  post '/service/toggle/:id' => 'services#toggle', :as => :toggle
+
   delete '/account/destroy' => 'users#destroy'
   get '/account' => 'users#edit', :as => 'account'
 

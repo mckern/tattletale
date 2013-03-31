@@ -64,6 +64,6 @@ class Service < ActiveRecord::Base
   end
 
   def start_time
-    self.checkins.first ? self.checkins.first.created_at : nil
+    self.created_at
   end
 end

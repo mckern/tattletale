@@ -1,16 +1,17 @@
 <div id="show_service" class="show service">
+  <span id="actions">
+    <h3 class="status">Status: <%= @service.status %></h3>
+    <ul class="actions">
+      <li><%= link_to(@service.active? ? "pause" : "resume", :toggle, :method => :post ) %></li>
+      <li><%= link_to("edit", edit_service_path(@service), :class => "edit") %></li>
+    </ul>
+  </span>
   <h2><%= @service.name %></h2>
-  <h3>Status: <%= @service.status %></h3>
-  <p><%= @service.description %></p>
-
-  <p>
-    <b>Service URL:</b>
-    <%= "#{root_url}#{@service.url}" %>
+  <p class="description"><%= @service.description %></p>
+  <p class="service"><b>Service URL:</b> <%= "#{root_url}#{@service.url}" %></p>
+  <p class="checkin">
+    <b>Last check-in:</b>
+    <%= @service.has_checked_in? ? @service.last_seen.strftime(date_time) : "No check-ins yet" %>
   </p>
-
-  <p>
-    <b>Next scheduled run:</b>
-    <%= @service.next.strftime(date_time) %>
-  </p>
-  <span class="edit"><%= link_to 'edit', edit_service_path(@service), :class => "edit" %></span>
+  <p class="next"><b>Next scheduled run:</b> <%= @service.next.strftime(date_time) %></p>
 </div>
