@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  service_id: 1
+  job_id: 1
   timestamp: 2012-10-02 17:25:09
 
 two:
-  service_id: 1
+  job_id: 1
   timestamp: 2012-10-02 17:25:09

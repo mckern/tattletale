@@ -1,11 +1,11 @@
 class DashboardController < ApplicationController
 
   def index
-    @services = @user.services.reload
+    @jobs = @user.jobs.reload
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @services }
+      format.json { render json: @jobs }
     end
   end
 

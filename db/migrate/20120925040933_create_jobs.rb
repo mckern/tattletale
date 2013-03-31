@@ -1,6 +1,6 @@
-class CreateServices < ActiveRecord::Migration
+class CreateJobs < ActiveRecord::Migration
   def change
-    create_table :services do |t|
+    create_table :jobs do |t|
       t.string :name, :null => false
       t.text :description
       t.string :cron_string, :null => false
@@ -13,6 +13,6 @@ class CreateServices < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :services
+    drop_table :jobs
   end
 end

@@ -1,5 +1,5 @@
 Tattletale::Application.routes.draw do
-  resources :services
+  resources :jobs
   resources :sessions
   resources :users
 
@@ -8,14 +8,14 @@ Tattletale::Application.routes.draw do
 
   get '/signup', to: 'users#new', :as => 'signup'
 
-  post '/service/toggle/:id' => 'services#toggle', :as => :toggle
+  post '/job/toggle/:id' => 'jobs#toggle', :as => :toggle
 
   delete '/account/destroy' => 'users#destroy'
   get '/account' => 'users#edit', :as => 'account'
 
   get '/dashboard' => 'dashboard#index'
 
-  match '/:url' => 'services#checkin'
+  match '/:url' => 'jobs#checkin'
 
   root :to => redirect('/dashboard')
 

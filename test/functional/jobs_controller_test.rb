@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ServicesControllerTest < ActionController::TestCase
+class JobsControllerTest < ActionController::TestCase
   setup do
-    @service = services(:one)
+    @job = jobs(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:services)
+    assert_not_nil assigns(:jobs)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ServicesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create service" do
-    assert_difference('Service.count') do
-      post :create, service: { active: @service.active, description: @service.description, title: @service.name, url: @service.url }
+  test "should create job" do
+    assert_difference('Job.count') do
+      post :create, job: { active: @job.active, description: @job.description, title: @job.name, url: @job.url }
     end
 
-    assert_redirected_to service_path(assigns(:service))
+    assert_redirected_to job_path(assigns(:job))
   end
 
-  test "should show service" do
-    get :show, id: @service
+  test "should show job" do
+    get :show, id: @job
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @service
+    get :edit, id: @job
     assert_response :success
   end
 
-  test "should update service" do
-    put :update, id: @service, service: { active: @service.active, description: @service.description, title: @service.name, url: @service.url }
-    assert_redirected_to service_path(assigns(:service))
+  test "should update job" do
+    put :update, id: @job, job: { active: @job.active, description: @job.description, title: @job.name, url: @job.url }
+    assert_redirected_to job_path(assigns(:job))
   end
 
-  test "should destroy service" do
-    assert_difference('Service.count', -1) do
-      delete :destroy, id: @service
+  test "should destroy job" do
+    assert_difference('Job.count', -1) do
+      delete :destroy, id: @job
     end
 
-    assert_redirected_to services_path
+    assert_redirected_to jobs_path
   end
 end

@@ -4,15 +4,15 @@
   </div>
 <% end %>
 
-<% if @services.empty? %>
+<% if @jobs.empty? %>
   <p>
-    You don't have any services defined.
+    You don't have any jobs defined.
     <%=
-      link_to "Do you want to create a new service?",
-        :controller => 'services',
+      link_to "Do you want to create a new job?",
+        :controller => 'jobs',
         :action => 'new'
     %>
   </p>
 <% else %>
-  <%= render :partial => 'service', :collection => @services.ascending %>
+  <%= render :partial => 'job', :collection => @jobs.ascending %>
 <% end %>

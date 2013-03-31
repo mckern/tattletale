@@ -1,7 +1,7 @@
 require 'cron_parser'
 require 'securerandom'
 
-class Service < ActiveRecord::Base
+class Job < ActiveRecord::Base
   attr_accessible :active, :description, :name, :cron_string, :url
 
   belongs_to :user
@@ -24,8 +24,8 @@ class Service < ActiveRecord::Base
   validates_presence_of :cron_string
 
   # Scopes for convenience
-  scope :descending, order("services.name DESC")
-  scope :ascending, order("services.name")
+  scope :descending, order("jobs.name DESC")
+  scope :ascending, order("jobs.name")
 
   # Figure out the last and next times in this schedule
   [:last, :next].each do |name|
@@ -57,7 +57,7 @@ class Service < ActiveRecord::Base
   end
 
   # Return an activerecord DateTime object corresponding
-  # to the time the service last checked in
+  # to the time the job last checked in
   def last_seen
     return nil if self.checkins.empty?
     self.checkins.sort_by{|checkin| checkin.updated_at}.last.created_at

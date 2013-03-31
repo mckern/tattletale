@@ -1,108 +1,108 @@
-class ServicesController < ApplicationController
+class JobsController < ApplicationController
   skip_before_filter :logged_in?, :only => :checkin
   skip_before_filter :set_user, :only => :checkin
 
   def index
-    @services = @user.services.reload
+    @jobs = @user.jobs.reload
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @services }
+      format.json { render json: @jobs }
     end
   end
 
-  # GET /services/1
-  # GET /services/1.json
+  # GET /jobs/1
+  # GET /jobs/1.json
   def show
-    @service = @user.services.find_by_id!(params[:id])
+    @job = @user.jobs.find_by_id!(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @service }
+      format.json { render json: @job }
     end
   end
 
-  # GET /services/new
-  # GET /services/new.json
+  # GET /jobs/new
+  # GET /jobs/new.json
   def new
-    @service = @user.services.new
+    @job = @user.jobs.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @service }
+      format.json { render json: @job }
     end
   end
 
-  # GET /services/1/edit
+  # GET /jobs/1/edit
   def edit
-    @service = @user.services.find(params[:id])
+    @job = @user.jobs.find(params[:id])
   end
 
-  # POST /services
-  # POST /services.json
+  # POST /jobs
+  # POST /jobs.json
   def create
-    @service = @user.services.new(params[:service])
+    @job = @user.jobs.new(params[:job])
 
     respond_to do |format|
-      if @service.save
-        format.html { redirect_to @service, notice: 'Service was successfully created.' }
-        format.json { render json: @service, status: :created, location: @service }
+      if @job.save
+        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.json { render json: @job, status: :created, location: @job }
       else
         format.html { render action: "new" }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /services/1
-  # PUT /services/1.json
+  # PUT /jobs/1
+  # PUT /jobs/1.json
   def update
-    @service = @user.services.find(params[:id])
+    @job = @user.jobs.find(params[:id])
 
     respond_to do |format|
-      if @service.update_attributes(params[:service])
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+      if @job.update_attributes(params[:job])
+        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /services/1
-  # DELETE /services/1.json
+  # DELETE /jobs/1
+  # DELETE /jobs/1.json
   def destroy
-    @service = @user.services.find(params[:id])
-    @service.destroy
+    @job = @user.jobs.find(params[:id])
+    @job.destroy
 
     respond_to do |format|
-      format.html { redirect_to services_url }
+      format.html { redirect_to jobs_url }
       format.json { head :no_content }
     end
   end
 
   def toggle
-    @service = @user.services.find_by_id!(params[:id])
-    @service.toggle 'active'
+    @job = @user.jobs.find_by_id!(params[:id])
+    @job.toggle 'active'
 
     respond_to do |format|
-      if @service.update_attributes(params[:service])
-        format.html { redirect_to @service, notice: 'Service was successfully updated.' }
+      if @job.update_attributes(params[:job])
+        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @service.errors, status: :unprocessable_entity }
+        format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def checkin
     begin
-      @service = Service.find_by_url!(params[:url])
-      @service.checkins << Checkin.new
+      @job = Job.find_by_url!(params[:url])
+      @job.checkins << Checkin.new
     rescue
-      redirect_to :root, :alert => @service.errors and return
+      redirect_to :root, :alert => @job.errors and return
     end
 
     respond_to do |format|

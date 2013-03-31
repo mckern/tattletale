@@ -14,13 +14,13 @@
 ActiveRecord::Schema.define(:version => 20130112040605) do
 
   create_table "checkins", :force => true do |t|
-    t.integer  "service_id", :null => false
+    t.integer  "job_id", :null => false
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "services", :force => true do |t|
+  create_table "jobs", :force => true do |t|
     t.string   "name",                          :null => false
     t.text     "description"
     t.string   "cron_string",                   :null => false

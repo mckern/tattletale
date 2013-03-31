@@ -1,8 +1,8 @@
-// Place all the styles related to the Services controller here.
+// Place all the styles related to the Jobs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-div.service{
+div.job{
   margin: 1em;
   margin-left: auto;
   margin-right: auto;
@@ -25,20 +25,20 @@ div.service{
   border-radius: 4px;
 }
 
-div.service h2{
+div.job h2{
   margin: 0;
   clear: none;
   padding: 0.25em 0 0.25em 32px;
   line-height: 1em;
 }
 
-div.service.show h2 { padding: 0.25em 0; }
+div.job.show h2 { padding: 0.25em 0; }
 
-div.service.show span#actions {
+div.job.show span#actions {
   float: right;
 }
 
-div.service p.description{
+div.job p.description{
   margin: 2em 0 1em;
 }
 
@@ -59,22 +59,22 @@ span#actions ul.actions li{
   padding: 0 0.50em;
 }
 
-div.service_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
-div.service_paused h2 {
+div.job_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
+div.job_paused h2 {
   background: url(/assets/grey.png) no-repeat left center;
 }
 
-div.service_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-div.service_not_started h2 {
+div.job_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+div.job_not_started h2 {
   background: url(/assets/grey.png) no-repeat left center;
 }
 
-div.service_on_time h2 {
+div.job_on_time h2 {
   background: url(/assets/green.png) no-repeat left center;
 }
 
-div.service_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
-div.service_late h2 {
+div.job_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
+div.job_late h2 {
   background: url(/assets/red.png) no-repeat left center;
 }
 
@@ -89,7 +89,7 @@ span.edit {
   font-weight: 800;
 }
 
-div.service a, a.edit, a.show {
+div.job a, a.edit, a.show {
   color: #4e504f;
   background: transparent;
   text-decoration: none;

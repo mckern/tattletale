@@ -1,17 +1,17 @@
-<div id="show_service" class="show service">
+<div id="show_job" class="show job">
   <span id="actions">
-    <h3 class="status">Status: <%= @service.status %></h3>
+    <h3 class="status">Status: <%= @job.status %></h3>
     <ul class="actions">
-      <li><%= link_to(@service.active? ? "pause" : "resume", :toggle, :method => :post ) %></li>
-      <li><%= link_to("edit", edit_service_path(@service), :class => "edit") %></li>
+      <li><%= link_to(@job.active? ? "pause" : "resume", :toggle, :method => :post ) %></li>
+      <li><%= link_to("edit", edit_job_path(@job), :class => "edit") %></li>
     </ul>
   </span>
-  <h2><%= @service.name %></h2>
-  <p class="description"><%= @service.description %></p>
-  <p class="service"><b>Service URL:</b> <%= "#{root_url}#{@service.url}" %></p>
+  <h2><%= @job.name %></h2>
+  <p class="description"><%= @job.description %></p>
+  <p class="job"><b>Job URL:</b> <%= "#{root_url}#{@job.url}" %></p>
   <p class="checkin">
     <b>Last check-in:</b>
-    <%= @service.has_checked_in? ? @service.last_seen.strftime(date_time) : "No check-ins yet" %>
+    <%= @job.has_checked_in? ? @job.last_seen.strftime(date_time) : "No check-ins yet" %>
   </p>
-  <p class="next"><b>Next scheduled run:</b> <%= @service.next.strftime(date_time) %></p>
+  <p class="next"><b>Next scheduled run:</b> <%= @job.next.strftime(date_time) %></p>
 </div>
