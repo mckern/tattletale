@@ -34,6 +34,7 @@ group :development do
   gem 'awesome_print', :require => "ap"
   gem 'hirb'
   gem 'irbtools', '= 1.4.0'
+  gem 'looksee'
   gem 'net-http-spy'
   gem 'terminal-notifier'
   gem 'what_methods'
