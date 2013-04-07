@@ -64,12 +64,12 @@ div.job_paused h2 {
   background: url(/assets/pause.png) no-repeat left center;
 }
 
-div.job_not_started { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-div.job_not_started h2 {
+div.job_pending { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+div.job_pending h2 {
   background: url(/assets/grey.png) no-repeat left center;
 }
 
-div.job_on_time h2 {
+div.job_ok h2 {
   background: url(/assets/green.png) no-repeat left center;
 }
 

@@ -5,7 +5,7 @@ Better yet, how do you know that ALL of your cronjobs finished? Most of the time
 
 ![Tattletale screenshot](/doc/screenshots/tattletale.jpg?raw=true)
 
-And thus at [Monitorama 2013](http://monitorama.com) hackathon, Tattletale was born. Register your job with Tattletale, then call the unique URL Tattletale provides (or the one you specified) at the end of your job (if it completes successfully, of course), and Tattletale does the rest. Each job has a state, and each state (<tt>on_time</tt>, <tt>late</tt>, <tt>paused</tt>, and <tt>not_started</tt>) has its own visual appearance, making it easy to tell what's going on with a glance.
+And thus at [Monitorama 2013](http://monitorama.com) hackathon, Tattletale was born. Register your job with Tattletale, then call the unique URL Tattletale provides (or the one you specified) at the end of your job (if it completes successfully, of course), and Tattletale does the rest. Each job has a state, and each state (<tt>ok</tt>, <tt>late</tt>, <tt>paused</tt>, and <tt>pending</tt>) has its own visual appearance, making it easy to tell what's going on with a glance.
 
 Here's a contrived example in Bash:
 ```bash
