@@ -45,7 +45,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to @job, notice: 'Job was successfully created.' }
+        format.html { redirect_to :dashboard, notice: 'Job was successfully created.' }
         format.json { render json: @job, status: :created, location: @job }
       else
         format.html { render action: "new" }
@@ -77,7 +77,7 @@ class JobsController < ApplicationController
     @job.destroy
 
     respond_to do |format|
-      format.html { redirect_to jobs_url }
+      format.html { redirect_to :dashboard, notice: 'Job was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -100,7 +100,7 @@ class JobsController < ApplicationController
   def checkin
     begin
       @job = Job.find_by_url!(params[:url])
-      @job.checkins << Checkin.new
+      @job.checkins << Checkin.new unless @job.paused?
     rescue
       redirect_to :root, :alert => @job.errors and return
     end
