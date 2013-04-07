@@ -7,14 +7,14 @@ class Job < ActiveRecord::Base
   belongs_to :user
   has_many :checkins, :dependent => :destroy
 
-  default_value_for :url, SecureRandom.urlsafe_base64(16)
+  default_value_for :url, SecureRandom.hex
 
   # Validate that name, description, and url are set
   validates_presence_of :name, :description, :url
   validates_uniqueness_of :name, :url
   validates_length_of :url,
     :minimum => 12,
-    :maximum => 24,
+    :maximum => 32,
     :allow_blank => false
 
   validates_format_of :url,
@@ -37,6 +37,10 @@ class Job < ActiveRecord::Base
   # If there haven't been any check-ins, return false
   def has_checked_in?
     self.checkins.empty? ? false : true
+  end
+
+  def paused?
+    self.active? ? false : true
   end
 
   # If there haven't been any check-ins, return false
