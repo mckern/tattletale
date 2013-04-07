@@ -28,4 +28,10 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = User.find_by_email session[:user_email]
   end
+
+  alias :std_redirect_to :redirect_to
+  def redirect_to(*args)
+     flash.keep
+     std_redirect_to *args
+  end
 end
