@@ -1,3 +1,6 @@
-<% unless notice.nil? %>
-<p id="notice" class="notice"><%= notice %></p>
+<% if flash[:notice] %>
+  <h2 class="notice"><%= flash[:notice] %></h2>
+<% end %>
+<% if flash[:error] %>
+  <h2 class="error"><%= flash[:error] %></h2>
 <% end %>

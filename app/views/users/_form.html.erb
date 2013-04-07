@@ -12,15 +12,21 @@
   <% end %>
 
   <div id="form">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
+    <div class="field">
+      <%= f.label :name, "Your name:" %>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label :email, "Your e-mail address:" %>
+      <%= f.text_field :email %>
+    </div>
     <div class="actions">
       <%= f.submit %>
+      <%= f.button(
+            "Delete user",
+            :method => :delete,
+            :confirm => 'Are you sure?') unless @user.new_record?
+      %>
     </div>
   </div>
 <% end %>
-<%= button_to "Delete this account!", :account_destroy, :method => :delete %>

@@ -1,11 +1,11 @@
-<p id="notice"><%= notice %></p>
+<span id="actions">
+  <ul class="actions">
+    <li><%= link_to("edit", edit_job_path(@user), :class => "edit") %></li>
+    <li><%= link_to "delete", @user, :method => :delete, :confirm => 'Are you sure?' %></li>
+  </ul>
+</span>
 
+<h2 class="user name"><%= @user.name %></h2>
 <p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
+  <span class="description">Email:</span> <%= @user.email %>
 </p>

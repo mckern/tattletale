@@ -1,13 +1,15 @@
 <div id="job" class="job <%= job.name -%> job_<%= job.status -%>">
   <h2><%= link_to job.name, job_path(job), :class => "show job" %></h2>
-  <span class="meta">
-    next run: <%= job.next.strftime(date_time) %>
+  <dl class="meta">
+    <dt class="description">Due in:</span>
+      <dd><%= time_ago_in_words(job.next) %></dd>
     <% if job.has_checked_in? %>
-      | last seen <%= job.last_seen.strftime(date_time) %>
+      <dt class="description">Last check-in:</dt>
+        <dd><%= time_ago_in_words(job.last_seen) %> ago</dd>
     <% else %>
-      | no check-ins yet
+      <dt class="description">Check-in pending</dt>
     <% end %>
-  </span>
-  <span class="edit"><%= link_to 'edit', edit_job_path(job), :class => "edit" %></span>
+  </dl>
+  <span class="details"><%= link_to 'details', job_path(job), :class => "show" %></span>
 </div>
 

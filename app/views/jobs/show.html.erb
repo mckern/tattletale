@@ -1,17 +1,26 @@
 <div id="show_job" class="show job">
   <span id="actions">
-    <h3 class="status">Status: <%= @job.status %></h3>
     <ul class="actions">
-      <li><%= link_to(@job.active? ? "pause" : "resume", :toggle, :method => :post ) %></li>
+      <li><%= link_to(
+            @job.active? ? "pause" : "resume",
+            :toggle,
+            :method => :post,
+          ) %>
+      </li>
       <li><%= link_to("edit", edit_job_path(@job), :class => "edit") %></li>
+      <li><%= link_to "delete", @job, :method => :delete, :confirm => 'Are you sure?' %></li>
     </ul>
   </span>
-  <h2><%= @job.name %></h2>
-  <p class="description"><%= @job.description %></p>
-  <p class="job"><b>Job URL:</b> <%= "#{root_url}#{@job.url}" %></p>
-  <p class="checkin">
-    <b>Last check-in:</b>
-    <%= @job.has_checked_in? ? @job.last_seen.strftime(date_time) : "No check-ins yet" %>
+  <h2 class="job_<%= @job.status -%>"><%= @job.name %></h2>
+  <p class="description">
+    <%= @job.description %>
   </p>
-  <p class="next"><b>Next scheduled run:</b> <%= @job.next.strftime(date_time) %></p>
+
+  <p class="job"><span class="description">Job URL:</span> <%= "#{root_url}#{@job.url}" %></p>
+  <p class="next"><span class="description">Due in:</span> <%= time_ago_in_words @job.next %></p>
+  <p class="checkin">
+    <span class="description">Last check-in:</span>
+    <%= @job.has_checked_in? ? "#{time_ago_in_words(@job.last_seen)} ago" : "No check-ins yet" %>
+    (<%= @job.status %>)
+  </p>
 </div>

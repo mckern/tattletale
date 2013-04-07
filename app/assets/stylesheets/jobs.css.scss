@@ -3,106 +3,120 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 div.job{
-  margin: 1em;
-  margin-left: auto;
-  margin-right: auto;
+  // Default background & formatting is specified at
+  // the application layer; make global changes there.
 
-  width: 500px;
-  padding: 0.50em 16px;
-  text-align: left;
-
-  background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
-  background-size: auto 100% !important;
-  border: 1px solid #ccc;
-  -moz-box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
-  -webkit-box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
-  box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
-  color: #4e504f;
-  text-shadow: 0 1px 2px #ddd;
-
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-div.job h2{
-  margin: 0;
-  clear: none;
-  padding: 0.25em 0 0.25em 32px;
-  line-height: 1em;
-}
-
-div.job.show h2 { padding: 0.25em 0; }
-
-div.job.show span#actions {
-  float: right;
-}
-
-div.job p.description{
-  margin: 2em 0 1em;
-}
-
-span#actions h3{
-  margin: 0;
-  padding: 0;
-}
-
-span#actions ul.actions {
-  list-style-type: none;
-  text-align: right;
-  margin: 0;
-  padding: 0;
-}
-
-span#actions ul.actions li{
-  display: inline;
-  padding: 0 0.50em;
-}
-
-div.job_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
-div.job_paused h2 {
-  background: url(/assets/pause.png) no-repeat left center;
-}
-
-div.job_pending { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-div.job_pending h2 {
-  background: url(/assets/grey.png) no-repeat left center;
-}
-
-div.job_ok h2 {
-  background: url(/assets/green.png) no-repeat left center;
-}
-
-div.job_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
-div.job_late h2 {
-  background: url(/assets/red.png) no-repeat left center;
-}
-
-span.meta {
-  padding: 0.25em;
-  display: inline-block;
-}
-
-span.edit {
-  display: inline-block;
-  float: right;
-  font-weight: 800;
-}
-
-div.job a, a.edit, a.show {
-  color: #4e504f;
-  background: transparent;
-  text-decoration: none;
-  &:active {
-    color: #4e504f;
-    background: transparent;
+  h2{
+    margin: 0;
+    clear: none;
+    padding: 0.25em 0 0.25em 32px;
+    line-height: 1em;
   }
-  &:hover {
-    color: #4e504f;
-    background: transparent;
+  &.edit h2{ padding: 0.25em 0 0.25em 0; }
+
+  &.show span#actions {
+   float: right;
   }
-  &:visited {
+
+  p.description {
+    margin: 2em 0 1em;
+  }
+
+  span.description { font-weight: 700; }
+
+  span#actions h3 {
+    margin: 0;
+    padding: 0;
+  }
+
+  span#actions {
+    ul.actions {
+      list-style-type: none;
+      text-align: right;
+      margin: 0;
+      padding: 0;
+    }
+
+    ul.actions li{
+      display: inline;
+      padding: 0 0.50em;
+    }
+  }
+
+  &.job_ok h2,
+  h2.job_ok {
+    background: url(/assets/green.png) no-repeat left center;
+  }
+
+  &.job_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
+  &.job_paused h2,
+  h2.job_paused {
+    background: url(/assets/pause.png) no-repeat left center;
+  }
+
+  &.job_pending { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+  &.job_pending h2,
+  h2.job_pending {
+    background: url(/assets/grey.png) no-repeat left center;
+  }
+
+  &.job_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
+  &.job_late h2,
+  h2.job_late {
+    background: url(/assets/red.png) no-repeat left center;
+  }
+
+  dl {
+    list-style-type: none;
+    display: inline-block;
+    margin: 0;
+
+    &.meta {
+      padding: 0.25em;
+      text-transform: lowercase;
+    }
+
+    dt {
+      display: inline-block;
+      margin: 0 0.25em 0 0;
+      padding: 0;
+    }
+
+    dd {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+
+    dt.description { font-weight: 700; }
+
+    dd + dt:before{
+      content: " | ";
+      padding: 0 0.25em;
+    }
+  }
+
+  span.details {
+    display: inline-block;
+    float: right;
+    font-weight: 700;
+  }
+
+  a, a.edit, a.show {
     color: #4e504f;
     background: transparent;
+    text-decoration: none;
+    &:active {
+      color: #4e504f;
+      background: transparent;
+    }
+    &:hover {
+      color: #4e504f;
+      background: transparent;
+    }
+    &:visited {
+      color: #4e504f;
+      background: transparent;
+    }
   }
 }

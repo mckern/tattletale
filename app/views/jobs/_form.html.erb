@@ -11,18 +11,14 @@
     </div>
   <% end %>
 
+<div id="form">
   <div class="field">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= f.label :url %>
+    <%= f.label :url, "URL" %>
     <%= f.text_field :url %>
   </div>
 
@@ -32,11 +28,19 @@
   </div>
 
   <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
+    <%= button_to(
+          "Delete job",
+          @job,
+          :method => :delete,
+          :confirm => 'Are you sure?'
+        ) unless @job.new_record?
+    %>
   </div>
+</div>
 <% end %>

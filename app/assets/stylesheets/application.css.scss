@@ -29,7 +29,7 @@ body{
   background: #666 url(/assets/bg-grid.png) repeat !important;
   color: #eee;
   text-align: center;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Verdana, "DejaVu Sans", Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 2em;
@@ -48,7 +48,6 @@ body{
   border-right: #fff 2px solid;
   background-color: #fff;
   -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
@@ -56,7 +55,6 @@ body{
   padding: 1em;
   background: #555 url(/assets/bg-grid_tinted.png) repeat !important;
   -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
   border-radius: 10px;
 }
 
@@ -70,8 +68,6 @@ body{
 #header{
   -webkit-border-top-left-radius: 10px;
   -webkit-border-top-right-radius: 10px;
-  -moz-border-radius-topleft: 10px;
-  -moz-border-radius-topright: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
@@ -79,8 +75,6 @@ body{
 #footer{
   -webkit-border-bottom-left-radius: 10px;
   -webkit-border-bottom-right-radius: 10px;
-  -moz-border-radius-bottomleft: 10px;
-  -moz-border-radius-bottomright: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -110,29 +104,29 @@ div#header ul li{
 }
 
 div#form{
-  width: 200px;
   margin-left: auto;
   margin-right: auto;
 }
 
-form input, form label{
-  display: block !important;
-  clear: both;
-}
+div.job, div.user {
+  background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
+  background-size: auto 100% !important;
+  border: 1px solid #ccc;
+  margin: 1em;
+  margin-left: auto;
+  margin-right: auto;
 
-form input[type=text] {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 200px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-form label {
-  display: inline-block;
-  padding-top: 5px;
+  width: 500px;
+  padding: 0.50em 16px;
   text-align: left;
-  width: 200px;
+
+  -webkit-box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
+  box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
+  color: #4e504f;
+  text-shadow: 0 1px 2px #ddd;
+
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
 }
 
 .logo{
