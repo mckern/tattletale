@@ -20,6 +20,10 @@ config/*.yml
 # Ignore OS X metadata
 .DS_Store
 
+# Ignore RVM meta stuff
+.rvm*
+.ruby*
+
 # Ignore my own notes about stuff
 # or development things
 Gemfile.lock
