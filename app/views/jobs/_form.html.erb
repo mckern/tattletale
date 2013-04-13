@@ -13,34 +13,27 @@
 
 <div id="form">
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :name, "Job name:" %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :url, "URL" %>
+    <%= f.label :url, "URL string (valid characters are a-z, 0-9, _, and .)" %>
     <%= f.text_field :url %>
   </div>
 
   <div class="field">
-    <%= f.label :cron_string %>
+    <%= f.label :cron_string, "Job's cron schedule (just paste from crontab):" %>
     <%= f.text_field :cron_string %>
   </div>
 
   <div class="field">
-    <%= f.label :description %>
+    <%= f.label :description, "Job description:" %>
     <%= f.text_area :description %>
   </div>
 
   <div class="actions">
     <%= f.submit %>
-    <%= button_to(
-          "Delete job",
-          @job,
-          :method => :delete,
-          :confirm => 'Are you sure?'
-        ) unless @job.new_record?
-    %>
   </div>
 </div>
 <% end %>

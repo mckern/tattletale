@@ -1,4 +1,4 @@
 <div id="edit_job" class="edit job">
-  <h2>Editing '<%= @job.name %>'</h2>
+  <h2>Editing '<%= @job.name.blank? ? '<nameless job>' : @job.name %>'</h2>
   <%= render 'form' %>
 </div>

@@ -1,7 +1,10 @@
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %>
+        are keeping this user from being created
+      </h2>
 
       <ul>
       <% @user.errors.full_messages.each do |msg| %>
@@ -12,11 +15,11 @@
   <% end %>
 
   <div id="form">
-    <div class="field">
+    <div id="user_name" class="field">
       <%= f.label :name, "Your name:" %>
       <%= f.text_field :name %>
     </div>
-    <div class="field">
+    <div id="user_email" class="field">
       <%= f.label :email, "Your e-mail address:" %>
       <%= f.text_field :email %>
     </div>
