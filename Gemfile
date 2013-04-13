@@ -13,8 +13,12 @@ gem 'mysql2'
 # parse-cron is the magic juice, and
 # jquery rails was neded at the time.
 gem 'default_value_for'
-gem 'parse-cron', :require => 'cron_parser'
+# The version in Git is ahead of the released Gem right now,
+# and it contains a pretty important validator that we want
+# to piggyback off of.
+gem 'parse-cron', :require => 'cron_parser', :git => "git://github.com/siebertm/parse-cron.git"
 gem 'jquery-rails'
+gem 'valid_email'
 
 # I use Unicorn or Passenger. Unicorn may be
 # slightly more responsive, but Passenger has
