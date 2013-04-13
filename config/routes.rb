@@ -11,11 +11,11 @@ Tattletale::Application.routes.draw do
   post '/job/toggle/:id' => 'jobs#toggle', :as => :toggle
 
   delete '/account/destroy' => 'users#destroy'
-  get '/account' => 'users#edit', :as => 'account'
+  get '/account' => 'users#edit', :as => :account
 
-  get '/dashboard' => 'dashboard#index'
+  get '/dashboard' => 'dashboard#index', :as => :dashboard
 
-  match '/:url' => 'jobs#checkin'
+  match '/:url' => 'jobs#checkin', :as => :checkin
 
   root :to => redirect('/dashboard')
 
