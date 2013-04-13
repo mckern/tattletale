@@ -33,8 +33,8 @@ Tattletale is licensed under the MIT license, and it's a work in progress. It wa
   * Check-in history
   * Job details
   * Approximate run time (subtract the scheduled start from the actual check-in)
-* Validate that job URLs don't accidentally map onto controller actions
-* Verify that generated or specified job URLs are truly unique
+* ~~Validate that job URLs don't accidentally map onto controller actions~~
+* ~~Verify that generated or specified job URLs are truly unique~~
     * Abandon specifying URLs?
 * Move this To-Do list into github issues?
 * Documentation
