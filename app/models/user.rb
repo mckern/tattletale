@@ -1,3 +1,5 @@
+require 'valid_email'
+
 class User < ActiveRecord::Base
   attr_accessible :name, :email
 
@@ -6,7 +8,8 @@ class User < ActiveRecord::Base
 
   # Validate that name, description, and url are set
   validates_presence_of :name, :email
-  validates_uniqueness_of :email
+  validates_uniqueness_of :name, :email, :case_sensitive => false
+  validates :email, :email => true, :if => :email?
 
   protected
 

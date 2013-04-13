@@ -107,7 +107,6 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html { head :ok }
-      format.json { head :no_content }
     end
   end
 end

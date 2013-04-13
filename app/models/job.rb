@@ -1,6 +1,25 @@
 require 'cron_parser'
 require 'securerandom'
 
+class CronLineValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    begin
+      result = CronParser.new value
+    rescue Exception => e
+      result = false
+    end
+    record.errors[attribute] << "doesn't look like a valid cron schedule" unless result
+  end
+end
+
+class ControllerNameValidator < ActiveModel::EachValidator
+  def validate_each(record, attribute, value)
+    if %q[users jobs checkins].include? value.downcase
+      record.errors[attribute] << "cannot overlap with a controller name"
+    end
+  end
+end
+
 class Job < ActiveRecord::Base
   attr_accessible :active, :description, :name, :cron_string, :url
 
@@ -10,7 +29,7 @@ class Job < ActiveRecord::Base
   default_value_for :url, SecureRandom.hex
 
   # Validate that name, description, and url are set
-  validates_presence_of :name, :description, :url
+  validates_presence_of :name, :description, :url, :cron_string
   validates_uniqueness_of :name, :url
   validates_length_of :url,
     :minimum => 12,
@@ -21,7 +40,13 @@ class Job < ActiveRecord::Base
     :with => /^[a-z0-9+\-_.]+$/i,
     :message => "can only contain letters, numbers, and '+, -, _, .'"
 
-  validates_presence_of :cron_string
+  validates :cron_string,
+    :cron_line => true,
+    :if => :cron_string?
+
+  validates :url,
+    :controller_name => true,
+    :if => :url?
 
   # Scopes for convenience
   scope :descending, order("jobs.name DESC")
@@ -29,8 +54,8 @@ class Job < ActiveRecord::Base
 
   # Figure out the last and next times in this schedule
   [:last, :next].each do |name|
-    define_method(name) do
-      return CronParser.new(self.cron_string).send(name)
+    define_method(name) do |date=Time.now|
+      return CronParser.new(self.cron_string).send(name, date)
     end
   end
 
@@ -54,8 +79,15 @@ class Job < ActiveRecord::Base
   def late?
     return false unless self.has_checked_in?
 
-    # This is the number of seconds between each run
-    threshold = (self.next - self.last).to_i
+    # This is the number of seconds between each run;
+    # we're using the last scheduled run as a base time,
+    # and calculating the difference between that and the
+    # next scheduled run from that time; this ensures
+    # that the value is not subject to the drift we'd
+    # see by just using last and next and the delta
+    # between them.
+    threshold = (self.next(self.last) - self.last).to_i
+
     # Math!
     ( self.last - self.last_seen ).to_i > threshold
   end
@@ -70,4 +102,6 @@ class Job < ActiveRecord::Base
   def start_time
     self.created_at
   end
+
+  private
 end
