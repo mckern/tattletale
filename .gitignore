@@ -28,4 +28,3 @@ config/*.yml
 # or development things
 Gemfile.lock
 outline.txt
-todo.md
