@@ -22,8 +22,8 @@ exit 0
 
 # Will Tattletale ever manage cron jobs?
 
-Tattletale is intended to roll-up completion status for the cron jobs you've already got, not manage the cron jobs that have grown unwieldly. If you've got a need for managing cron jobs (where they run, when they run, who they run as, or worse: building complex workflows based on the completion status of your job chain) then Tattletale is not the tool for you! Might I suggest [Chronos](http://airbnb.github.io/chronos/) by [airbnb](https://www.airbnb.com)? It's so much more than Tattletale could ever, ever be.
+Tattletale is intended to roll-up completion status for the cron jobs you've already got, not manage the cron jobs that have grown unwieldy. If you've got a need for managing cron jobs (where they run, when they run, who they run as, or worse: building complex workflows based on the completion status of your job chain) then Tattletale is not the tool for you! Might I suggest [Chronos](http://airbnb.github.io/chronos/) by [airbnb](https://www.airbnb.com)? It's so much more than Tattletale could ever, ever be.
 
-# License & To-Do
+# Licensing
 
 Tattletale is licensed under the MIT license, and it's a work in progress. It was written to scratch an itch, and as such it has some rough edges.
