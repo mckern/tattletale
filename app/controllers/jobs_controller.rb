@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @job }
+      format.json { render_for_api :checkins_with_job, :json => @job, :root => :job }
     end
   end
 

@@ -21,6 +21,8 @@ class ControllerNameValidator < ActiveModel::EachValidator
 end
 
 class Job < ActiveRecord::Base
+  acts_as_api
+
   attr_accessible :active, :description, :name, :cron_string, :url
 
   belongs_to :user
@@ -52,12 +54,34 @@ class Job < ActiveRecord::Base
   scope :descending, order("jobs.name DESC")
   scope :ascending, order("jobs.name")
 
+  api_accessible :job do |t|
+    t.add :name
+    t.add :status
+    t.add :description
+    t.add :next_run
+    t.add :last_seen
+  end
+
+  api_accessible :checkins_with_job do |t|
+    t.add :name
+    t.add :status
+    t.add :description
+    t.add :next_run
+    t.add :last_seen
+    t.add "checkins.last_week", :as => :checkins
+  end
+
   # Figure out the last and next times in this schedule
   [:last, :next].each do |name|
-    define_method(name) do |date=Time.now|
-      return CronParser.new(self.cron_string).send(name, date)
+    define_method(name) do |date=DateTime.now|
+      # This behaved most reliably when loaded
+      # into a variable first, rather than returning
+      # "as-is"
+      time = CronParser.new(self.cron_string).send(name, date)
+      Time.at time
     end
   end
+  alias :next_run :next
 
   # If there haven't been any check-ins, return false
   def has_checked_in?
@@ -92,16 +116,24 @@ class Job < ActiveRecord::Base
     ( self.last - self.last_seen ).to_i > threshold
   end
 
-  # Return an activerecord DateTime object corresponding
+  # Return a Time object corresponding
   # to the time the job last checked in
   def last_seen
     return nil if self.checkins.empty?
-    self.checkins.sort_by{|checkin| checkin.updated_at}.last.created_at
+    Time.at self.checkins.sort_by{|checkin| checkin.updated_at}.last.created_at
   end
 
   def start_time
-    self.created_at
+    Time.at self.created_at
   end
 
-  private
+  def to_string
+    self.name
+  end
+  alias :to_s :to_string
+
+  def to_param
+    [id, name.parameterize].join("-")
+  end
+  alias :to_p :to_param
 end

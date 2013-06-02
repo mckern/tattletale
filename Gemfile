@@ -17,6 +17,7 @@ gem 'default_value_for'
 # and it contains a pretty important validator that we want
 # to piggyback off of.
 gem 'parse-cron', :require => 'cron_parser', :git => "git://github.com/siebertm/parse-cron.git"
+gem 'acts_as_api'
 gem 'jquery-rails'
 gem 'valid_email'
 
