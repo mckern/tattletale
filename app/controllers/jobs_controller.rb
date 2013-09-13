@@ -6,7 +6,8 @@ class JobsController < ApplicationController
     @jobs = @user.jobs.reload
 
     respond_to do |format|
-      format.html # index.html.erb
+      # format.html # index.html.erb
+      # format.json { render json: @jobs }
       format.json { render json: @jobs }
     end
   end
