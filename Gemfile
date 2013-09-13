@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-# Avoid Rails 3.2.13, because it is horribly
-# regression-filled.
-gem 'rails', '= 3.2.12'
+gem 'rails', '~> 3.2'
 
 # I used MySQL because I'm lazy, but any
 # RDBM will work.
@@ -13,10 +11,7 @@ gem 'mysql2'
 # parse-cron is the magic juice, and
 # jquery rails was neded at the time.
 gem 'default_value_for'
-# The version in Git is ahead of the released Gem right now,
-# and it contains a pretty important validator that we want
-# to piggyback off of.
-gem 'parse-cron', :require => 'cron_parser', :git => "git://github.com/siebertm/parse-cron.git"
+gem 'parse-cron', :require => 'cron_parser'
 gem 'acts_as_api'
 gem 'jquery-rails'
 gem 'valid_email'
@@ -26,7 +21,7 @@ gem 'valid_email'
 # (I think) a simpler conceptual model. Pick
 # one, try it, and if you don't like it then
 # use any middleware of your choice.
-#
+
 # gem 'unicorn'
 gem 'passenger'
 
@@ -49,8 +44,8 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails',   '~> 3.2'
+  gem 'coffee-rails', '~> 3.2'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
