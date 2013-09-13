@@ -9,6 +9,8 @@ production: &base
   # This is the format that DateTime objects will be displayed in.
   # See http://apidock.com/ruby/DateTime/strftime for reference.
   date_time: '%R %F'
+  # This should be a sufficiently large enough random string
+  secret_token: 'EDIT THIS!'
 
 development:
   <<: *base

@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Tattletale::Application.config.secret_token = '36455f6b20b5c7f8b7719bf835a80f5fb6a75d1b5d768509951a40acc0a3996471f8f3e27a3aacaa6097fd912898f83dd51c775497336bbeaec6d371ea0c7641'
+Tattletale::Application.config.secret_token = Rails.configuration.secret_token
