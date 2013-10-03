@@ -26,8 +26,8 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 
 body{
-  background: #666 url(/assets/bg-grid.png) repeat !important;
-  color: #eee;
+  background: #ddd !important;
+  color: #333;
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Verdana, "DejaVu Sans", Arial, sans-serif;
   font-size: 13px;
@@ -39,44 +39,22 @@ body{
   margin: 0 2em;
   margin-left: auto;
   margin-right: auto;
-  width: 600px;
+  width: 500px;
   padding: 10px;
 }
 
-#container{
-  border-left: #fff 2px solid;
-  border-right: #fff 2px solid;
-  background-color: #fff;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-
-#content{
-  padding: 1em;
-  background: #555 url(/assets/bg-grid_tinted.png) repeat !important;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
+// #content{
+  // padding: 1em;
+  // background: rgba(189, 195, 199,1.0);
+  // -webkit-border-radius: 5px;
+  // border-radius: 5px;
+// }
 
 #header, #footer{
   border: none;
   background: none;
   color: #000;
   text-align: left;
-}
-
-#header{
-  -webkit-border-top-left-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-#footer{
-  -webkit-border-bottom-left-radius: 10px;
-  -webkit-border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
 }
 
 #footer a, #header a{
@@ -94,62 +72,63 @@ body{
 
 div#header ul{
   list-style-type: none;
-  text-align: right;
-  float: right;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  // float: right;
 }
 
 div#header ul li{
   display: inline;
+  text-align: center;
   padding: 0 0.50em;
 }
+
+div.job, div.user, div.session {
+  // background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
+  // background-size: auto 100% !important;
+  background-color: rgba(236, 240, 241,1.0);
+  border: 1px solid rgba(127, 140, 141,1.0);
+  border-left: 20px solid rgba(127, 140, 141,1.0);
+  color: rgba(52, 73, 94,1.0);
+
+  margin: 1.2em 0;
+  // margin-left: auto;
+  // margin-right: auto;
+
+  // width: 400px;
+  padding: 0.50em 16px;
+  text-align: left;
+
+  a, a.edit, a.show {
+    // color: #4e504f;
+    color: rgba(52, 73, 94,1.0);
+    background: transparent;
+    text-decoration: none;
+    // &:active {
+    //   color: #4e504f;
+    //   background: transparent;
+    // }
+    // &:hover {
+    //   color: #4e504f;
+    //   background: transparent;
+    // }
+    // &:visited {
+    //   color: #4e504f;
+    //   background: transparent;
+    // }
+  }
+}
+
 
 div#form{
   margin-left: auto;
   margin-right: auto;
 }
 
-div.job, div.user, div.session {
-  background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
-  background-size: auto 100% !important;
-  border: 1px solid #ccc;
-  margin: 1em;
-  margin-left: auto;
-  margin-right: auto;
-
-  width: 500px;
-  padding: 0.50em 16px;
-  text-align: left;
-
-  -webkit-box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
-  box-shadow: 0 1px 1px #ddd, 0 -1px 1px #555;
-  color: #4e504f;
-  text-shadow: 0 1px 2px #ddd;
-
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-
-  a, a.edit, a.show {
-    color: #4e504f;
-    background: transparent;
-    text-decoration: none;
-    &:active {
-      color: #4e504f;
-      background: transparent;
-    }
-    &:hover {
-      color: #4e504f;
-      background: transparent;
-    }
-    &:visited {
-      color: #4e504f;
-      background: transparent;
-    }
-  }
-}
-
 .logo{
   font-size: 2.50em;
-  padding: 0 .50em;
+  // padding: 0 .50em;
   line-height: 1.50em;
   display: inline !important;
   font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;

@@ -1,5 +1,8 @@
 <div id="job" class="job <%= job.name -%> job_<%= job.status -%>">
-  <h2><%= link_to job.name, job_path(job), :class => "show job" %></h2>
+  <h2>
+    <i class="icon-<%= job.status -%>"></i>
+    <%= link_to job.name, job_path(job), :class => "show job" %>
+  </h2>
   <dl class="meta">
     <dt class="description">Due in:</span>
       <dd><%= time_ago_in_words(job.next) %></dd>

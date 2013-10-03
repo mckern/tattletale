@@ -9,7 +9,7 @@ div.job{
   h2{
     margin: 0;
     clear: none;
-    padding: 0.25em 0 0.25em 32px;
+    padding: 0.25em 0;
     line-height: 1em;
   }
   &.edit h2{ padding: 0.25em 0 0.25em 0; }
@@ -43,27 +43,41 @@ div.job{
     }
   }
 
-  &.job_ok h2,
-  h2.job_ok {
-    background: url(/assets/green.png) no-repeat left center;
+  &.job_ok {
+    border: 1px solid rgba(39, 174, 96,1.0);
+    border-left: 20px solid rgba(39, 174, 96,1.0);
+  }
+  &.job_ok i,
+  i.job_ok {
+    color: rgba(39, 174, 96,1.0);
   }
 
-  &.job_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
+  &.job_paused {
+    border: 1px solid rgba(127, 140, 141,1.0);
+    border-left: 20px solid rgba(127, 140, 141,1.0);
+    background-color: rgba(189, 195, 199,1.0);
+  }
   &.job_paused h2,
   h2.job_paused {
-    background: url(/assets/pause.png) no-repeat left center;
+    color: rgba(127, 140, 141,1.0);
   }
 
-  &.job_pending { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
+  &.job_pending {
+    border: 1px solid rgba(44, 62, 80,1.0);
+    border-left: solid 20px rgba(44, 62, 80,1.0);
+  }
   &.job_pending h2,
   h2.job_pending {
-    background: url(/assets/grey.png) no-repeat left center;
+    color: rgba(44, 62, 80,1.0);
   }
 
-  &.job_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
+  &.job_late {
+    border: 1px solid rgba(192, 57, 43, 1.0);
+    border-left: solid 20px rgba(192, 57, 43, 1.0);
+  }
   &.job_late h2,
   h2.job_late {
-    background: url(/assets/red.png) no-repeat left center;
+    color:  rgba(192, 57, 43, 1.0);
   }
 
   dl {
