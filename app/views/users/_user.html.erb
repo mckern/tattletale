@@ -1,6 +1,6 @@
-<div id="user" class="user <%= user.name -%> user_<%= user.active -%>">
-  <h2><%= user.name %></h2>
+<div id="user" class="user <%= @user.name -%> user_<%= @user.active -%>">
+  <h2><%= @user.name %></h2>
   <span class="right">
-    <%= link_to 'Edit', edit_user_path(user) %>
+    <%= link_to 'Edit', edit_user_path(@user) %>
   </span>
 </div>
