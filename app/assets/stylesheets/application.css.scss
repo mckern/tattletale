@@ -75,44 +75,41 @@ div#header ul{
   text-align: center;
   padding: 0;
   margin: 0;
-  // float: right;
+  float: right;
 }
 
 div#header ul li{
   display: inline;
-  text-align: center;
+  text-align: right;
   padding: 0 0.50em;
 }
 
 div.job, div.user, div.session {
-  // background: #aaa url(/assets/green_gradient.jpg) repeat-x top left;
-  // background-size: auto 100% !important;
-  background-color: rgba(236, 240, 241,1.0);
-  border: 1px solid rgba(127, 140, 141,1.0);
-  border-left: 20px solid rgba(127, 140, 141,1.0);
-  color: rgba(52, 73, 94,1.0);
-
-  margin: 1.2em 0;
-  // margin-left: auto;
-  // margin-right: auto;
-
-  // width: 400px;
-  padding: 0.50em 16px;
   text-align: left;
 
+  color: rgba(52, 73, 94,1.0); // wet asphalt
+  background-color: 'rgba(236, 240, 241, 1.0)'; // clouds
+
+  border: 1px solid rgba(127, 140, 141, 1.0); // asbestos
+  border-left: 20px solid rgba(127, 140, 141, 1.0); //asbestos
+
+  margin: 1.2em 0;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.50em 16px;
+
   a, a.edit, a.show {
-    // color: #4e504f;
-    color: rgba(52, 73, 94,1.0);
+    color: rgba(52, 73, 94, 1.0);  // wet asphalt
     background: transparent;
     text-decoration: none;
-    // &:active {
-    //   color: #4e504f;
-    //   background: transparent;
-    // }
-    // &:hover {
-    //   color: #4e504f;
-    //   background: transparent;
-    // }
+    &:active {
+      color: rgba(52, 152, 219, 1.0); // peter river
+      background: transparent;
+    }
+    &:hover {
+      color: rgba(41, 128, 185, 1.0); // belize hole
+      background: transparent;
+    }
     // &:visited {
     //   color: #4e504f;
     //   background: transparent;
