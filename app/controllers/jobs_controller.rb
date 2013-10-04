@@ -107,7 +107,10 @@ class JobsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { head :ok }
+      format.html {
+        render text: "OK\n",
+        content_type: 'text/plain'
+      }
     end
   end
 end
