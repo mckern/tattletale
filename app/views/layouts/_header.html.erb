@@ -2,10 +2,9 @@
   <span class="logo"><%= link_to("tattletale", :root) %></span>
   <% unless @user.nil? || @user.name.nil? || @user.new_record? %>
   <ul id="navigation" class="navigation">
-    <li><%= link_to("Create new job", :controller => :jobs, :action => :new) %></li>
-    <li><%= link_to("Edit user account", :account) %></li>
-
-    <li><%= link_to("Log out", :logout, :class => "logout", :method => :destroy) %></li>
+    <li><%= link_to(raw('<i class="icon-plus"></i>'), :controller => :jobs, :action => :new) %></li>
+    <li><%= link_to(raw('<i class="icon-user"></i>'), :account) %></li>
+    <li><%= link_to(raw('<i class="icon-signout"></i>'), :logout, :class => "logout", :method => :destroy) %></li>
   </ul>
   <% end %>
 </div>

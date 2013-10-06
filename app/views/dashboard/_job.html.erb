@@ -1,7 +1,7 @@
 <div id="job" class="job <%= job.name -%> job_<%= job.status -%>">
   <h2>
     <i class="icon-<%= job.status -%>"></i>
-    <%= link_to job.name, job_path(job), :class => "show job" %>
+    <%= link_to(job.name, job_path(job), :class => "show job") %>
   </h2>
   <dl class="meta">
     <dt class="description">Due in:</span>
@@ -13,6 +13,12 @@
       <dt class="description">Check-in pending</dt>
     <% end %>
   </dl>
-  <span class="details"><%= link_to 'details', job_path(job), :class => "show" %></span>
+  <!-- <span class="details"> -->
+    <%= link_to(
+          raw(%q[<i class="icon-information_white details"></i>]),
+          job_path(job),
+          :class => 'show')
+    %>
+  <!-- </span> -->
 </div>
 

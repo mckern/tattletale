@@ -27,7 +27,7 @@
 
 body{
   background: #ddd !important;
-  color: #333;
+  color: rgba(52, 73, 94, 1.0);  // wet asphalt
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Verdana, "DejaVu Sans", Arial, sans-serif;
   font-size: 13px;
@@ -41,54 +41,52 @@ body{
   margin-right: auto;
   width: 500px;
   padding: 10px;
-}
-
-// #content{
-  // padding: 1em;
-  // background: rgba(189, 195, 199,1.0);
-  // -webkit-border-radius: 5px;
-  // border-radius: 5px;
-// }
-
-#header, #footer{
-  border: none;
-  background: none;
-  color: #000;
   text-align: left;
 }
 
-#footer a, #header a{
-  color: #000;
+a {
+  color: rgba(52, 73, 94, 1.0);  // wet asphalt
+  background: transparent;
   text-decoration: none;
-  &:visited {
-    color: #000;
-    background: inherit;
+  &:active {
+    color: rgba(52, 152, 219, 1.0); // peter river
+    background: transparent;
   }
   &:hover {
-    color: #000;
-    background: inherit;
+    color: rgba(41, 128, 185, 1.0); // belize hole
+    background: transparent;
   }
 }
 
-div#header ul{
-  list-style-type: none;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-  float: right;
-}
+div#header {
+  .logo{
+    font-size: 2.50em;
+    line-height: 1.50em;
+    font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;
+    font-weight: 400;
+  }
 
-div#header ul li{
-  display: inline;
-  text-align: right;
-  padding: 0 0.50em;
+  ul{
+    list-style-type: none;
+    text-align: right;
+    float: right;
+    font-size: 1.50em;
+    margin: .75em;
+    padding: 0;
+
+    li{
+      display: inline;
+      text-align: right;
+      padding: 0 0.50em;
+    }
+  }
 }
 
 div.job, div.user, div.session {
   text-align: left;
 
   color: rgba(52, 73, 94,1.0); // wet asphalt
-  background-color: 'rgba(236, 240, 241, 1.0)'; // clouds
+  background-color: rgba(236, 240, 241, 1.0); // clouds
 
   border: 1px solid rgba(127, 140, 141, 1.0); // asbestos
   border-left: 20px solid rgba(127, 140, 141, 1.0); //asbestos
@@ -97,39 +95,12 @@ div.job, div.user, div.session {
   margin-left: auto;
   margin-right: auto;
   padding: 0.50em 16px;
-
-  a, a.edit, a.show {
-    color: rgba(52, 73, 94, 1.0);  // wet asphalt
-    background: transparent;
-    text-decoration: none;
-    &:active {
-      color: rgba(52, 152, 219, 1.0); // peter river
-      background: transparent;
-    }
-    &:hover {
-      color: rgba(41, 128, 185, 1.0); // belize hole
-      background: transparent;
-    }
-    // &:visited {
-    //   color: #4e504f;
-    //   background: transparent;
-    // }
-  }
 }
 
 
 div#form{
   margin-left: auto;
   margin-right: auto;
-}
-
-.logo{
-  font-size: 2.50em;
-  // padding: 0 .50em;
-  line-height: 1.50em;
-  display: inline !important;
-  font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;
-  font-weight: 400;
 }
 
 .small { font-size: 0.75em; }

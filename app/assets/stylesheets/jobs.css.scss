@@ -44,39 +44,35 @@ div.job{
   }
 
   &.job_ok {
-    border: 1px solid rgba(39, 174, 96,1.0);
-    border-left: 20px solid rgba(39, 174, 96,1.0);
+    border: 1px solid rgba(39, 174, 96, 1.0);
+    border-left: 20px solid rgba(39, 174, 96, 1.0);
   }
-  &.job_ok i,
-  i.job_ok {
-    color: rgba(39, 174, 96,1.0);
+  &.job_ok i.icon-ok {
+    color: rgba(39, 174, 96, 1.0);
   }
 
   &.job_paused {
-    border: 1px solid rgba(127, 140, 141,1.0);
-    border-left: 20px solid rgba(127, 140, 141,1.0);
-    background-color: rgba(189, 195, 199,1.0);
+    border: 1px solid rgba(127, 140, 141, 1.0);
+    border-left: 20px solid rgba(127, 140, 141, 1.0);
+    background-color: rgba(189, 195, 199, 1.0);
   }
-  &.job_paused h2,
-  h2.job_paused {
+  &.job_paused i.icon-paused {
     color: rgba(127, 140, 141,1.0);
   }
 
   &.job_pending {
-    border: 1px solid rgba(44, 62, 80,1.0);
-    border-left: solid 20px rgba(44, 62, 80,1.0);
+    border: 1px solid rgba(44, 62, 80, 1.0);
+    border-left: solid 20px rgba(44, 62, 80, 1.0);
   }
-  &.job_pending h2,
-  h2.job_pending {
-    color: rgba(44, 62, 80,1.0);
+  &.job_pending i.icon-pending {
+    color: rgba(44, 62, 80, 1.0);
   }
 
   &.job_late {
     border: 1px solid rgba(192, 57, 43, 1.0);
     border-left: solid 20px rgba(192, 57, 43, 1.0);
   }
-  &.job_late h2,
-  h2.job_late {
+  &.job_late i.icon-late {
     color:  rgba(192, 57, 43, 1.0);
   }
 
@@ -110,9 +106,9 @@ div.job{
     }
   }
 
-  span.details {
+  .details {
     display: inline-block;
     float: right;
-    font-weight: 700;
+    font-size: 1.5em;
   }
 }
