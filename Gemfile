@@ -17,6 +17,7 @@ gem 'default_value_for'
 gem 'parse-cron', :require => 'cron_parser'
 gem 'acts_as_api'
 gem 'jquery-rails'
+gem 'twitter-bootstrap-rails'
 gem 'valid_email'
 
 # Gems used only for assets and not required
