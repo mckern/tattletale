@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require twitter-bootstrap-static/bootstrap
  *= require_tree .
  */
 
@@ -30,8 +31,8 @@ body{
   color: rgba(52, 73, 94, 1.0);  // wet asphalt
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Verdana, "DejaVu Sans", Arial, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  // font-size: 10px;
+  // line-height: 12px;
   margin: 2em;
 }
 
@@ -45,41 +46,49 @@ body{
 }
 
 a {
-  color: rgba(52, 73, 94, 1.0);  // wet asphalt
+  color: rgba(52, 73, 94, 1.0) !important;  // wet asphalt
   background: transparent;
   text-decoration: none;
   &:active {
-    color: rgba(52, 152, 219, 1.0); // peter river
+    color: rgba(52, 152, 219, 1.0) !important; // peter river
     background: transparent;
   }
   &:hover {
-    color: rgba(41, 128, 185, 1.0); // belize hole
+    color: rgba(41, 128, 185, 1.0) !important; // belize hole
     background: transparent;
   }
 }
 
 div#header {
+  // border: 1px dashed black;
+  margin: 1em 0;
+
   .logo{
     font-size: 2.50em;
-    line-height: 1.50em;
     font-family: "ChunkFiveRegular", "Roboto Condensed", sans-serif;
     font-weight: 400;
   }
 
-  ul{
-    list-style-type: none;
-    text-align: right;
+  .navigation{
+    // border: 1px dashed black;
     float: right;
-    font-size: 1.50em;
-    margin: .75em;
-    padding: 0;
 
-    li{
-      display: inline;
-      text-align: right;
-      padding: 0 0.50em;
-    }
   }
+
+  // ul{
+  //   list-style-type: none;
+  //   text-align: right;
+  //   float: right;
+  //   font-size: 1.50em;
+  //   margin: .75em;
+  //   padding: 0;
+
+  //   li{
+  //     display: inline;
+  //     text-align: right;
+  //     padding: 0 0.50em;
+  //   }
+  // }
 }
 
 div.job, div.user, div.session {
@@ -103,8 +112,10 @@ div#form{
   margin-right: auto;
 }
 
-.small { font-size: 0.75em; }
+.small { font-size: 0.85em; }
+.x-small { font-size: 0.75em; }
 .large { font-size: 1.50em }
+.x-large { font-size: 1.75em }
 
 .red { color: #f00; }
 .green { color: #0f0; }

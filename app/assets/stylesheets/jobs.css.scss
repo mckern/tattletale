@@ -52,12 +52,16 @@ div.job{
   }
 
   &.job_paused {
-    border: 1px solid rgba(127, 140, 141, 1.0);
-    border-left: 20px solid rgba(127, 140, 141, 1.0);
-    background-color: rgba(189, 195, 199, 1.0);
+    border: 1px solid rgba(92, 92, 97, 1.0);
+    border-left: 20px solid rgba(92, 92, 97, 1.0);
+    background-color: rgba(199, 205, 209, 1.0);
+    // background-color: gray;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 9%, rgba(255,255,255,.4) 9%, rgba(255,255,255,.4) 16%);
+    background-image: -webkit-repeating-linear-gradient(45deg, transparent, transparent 9%, rgba(255,255,255,.4) 9%, rgba(255,255,255,.4) 16%);
   }
   &.job_paused i.icon-paused {
-    color: rgba(127, 140, 141,1.0);
+    // color: rgba(127, 140, 141,1.0);
+    color: rgba(92, 92, 97, 1.0);
   }
 
   &.job_pending {
@@ -109,6 +113,6 @@ div.job{
   .details {
     display: inline-block;
     float: right;
-    font-size: 1.5em;
+    // font-size: 1.5em;
   }
 }
