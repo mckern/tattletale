@@ -1,16 +1,16 @@
 <div id="form">
-  <%= form_tag :action => 'create' do %>
+  <%= form_tag({:action => 'create'}, {:class => 'form-inline'}) do %>
     <div class="field">
-      <%= label_tag :email, "What is your email address?" %>
       <%= text_field_tag :email, nil,
-            :placeholder => Rails.configuration.email_from,
+            :placeholder => 'e-mail address',
             :class => 'login text'
       %>
+      <%= submit_tag 'Sign-in', :class => 'submit button login' %>
     </div>
-    <%= submit_tag 'Sign-in', :class => 'submit button login' %>
+
 
   <% end %>
 
-  <h3>Not a Tattletale user? <%= link_to "Create a new account", :signup %></h3>
+  <p>Not a Tattletale user? <%= link_to "Create a new account", :signup %></p>
 
 </div>

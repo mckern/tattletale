@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require twitter-bootstrap-static/bootstrap
  *= require_tree .
  */
 
@@ -26,18 +25,25 @@
 
 @import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 
+ // Have yourself some background-color-kludge!
+html {
+   min-height: 100%;
+}
+
 body{
-  background: #ddd !important;
-  color: rgba(52, 73, 94, 1.0);  // wet asphalt
+  background-color: rgba(247, 247, 247, 1.0) !important;
+  background-image: -webkit-linear-gradient(#c7c7c7, #f7f7f7);
+  background-image: linear-gradient(#c7c7c7, #f7f7f7);
+
+  color: #34495e;  // wet asphalt
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Verdana, "DejaVu Sans", Arial, sans-serif;
-  // font-size: 10px;
-  // line-height: 12px;
   margin: 2em;
 }
 
 #container{
   margin: 0 2em;
+  margin-bottom: 4em;
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -46,16 +52,14 @@ body{
 }
 
 a {
-  color: rgba(52, 73, 94, 1.0) !important;  // wet asphalt
+  color: rgba(52, 73, 94, 1.0);  // wet asphalt
   background: transparent;
   text-decoration: none;
   &:active {
-    color: rgba(52, 152, 219, 1.0) !important; // peter river
-    background: transparent;
-  }
-  &:hover {
-    color: rgba(41, 128, 185, 1.0) !important; // belize hole
-    background: transparent;
+    color: rgba(52, 152, 219, 1.0); // peter river
+}
+  &:hover, &:focus {
+    color: rgba(41, 128, 185, 1.0); // belize hole
   }
 }
 
@@ -92,13 +96,13 @@ div#header {
 }
 
 div.job, div.user, div.session {
+  border-radius: 4px;
   text-align: left;
 
   color: rgba(52, 73, 94,1.0); // wet asphalt
   background-color: rgba(236, 240, 241, 1.0); // clouds
 
   border: 1px solid rgba(127, 140, 141, 1.0); // asbestos
-  border-left: 20px solid rgba(127, 140, 141, 1.0); //asbestos
 
   margin: 1.2em 0;
   margin-left: auto;
@@ -123,3 +127,18 @@ div#form{
 
 .left { text-align: left !important; }
 .right { text-align: right !important; }
+
+.danger {
+  color: rgba(192, 57, 43, 1.0) !important;
+  font-weight: bold !important;
+}
+
+.dropdown-menu {
+  min-width: 0px !important;
+}
+
+.dropdown-menu li a:hover.danger,
+.dropdown-menu li a:focus.danger{
+  color: #fff !important;
+  background: rgba(192, 57, 43, 1.0) !important;
+}

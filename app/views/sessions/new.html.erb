@@ -1,4 +1,20 @@
 <div id="new_session" class="new session">
-  <h2>Please log into Tattletale</h2>
-  <%= render :partial => 'form' %>
+  <h4>Sign in</h4>
+  <div id="form">
+    <%= form_tag({:action => 'create'}) do %>
+      <div class="field">
+        <%= text_field_tag :email, nil,
+              :placeholder => 'e-mail address',
+              :class => 'login text'
+        %>
+      </div>
+      <div class="field">
+        <%= submit_tag 'Sign-in', :class => 'submit btn btn-small login' %>
+        <%= link_to "Create a new account", :signup, :class => 'btn btn-small' %>
+      </div>
+    <% end %>
+
+
+  </div>
+
 </div>

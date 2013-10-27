@@ -32,7 +32,15 @@
           ) %>
         </li>
         <li class="divider"></li>
-        <li><a href="#">Delete</a></li>
+        <li>
+          <%= link_to(
+            "Delete",
+            job_path(job),
+            :method => :delete,
+            :class => %q[danger],
+            :confirm => 'Are you sure?'
+          ) %>
+        </li>
       </ul>
     </div>
   </div>
