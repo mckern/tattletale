@@ -1,5 +1,10 @@
-<div id="new_session" class="new session">
-  <h4>Sign in</h4>
+<div id="new_session" class="new session sign-in">
+  <h3>Welcome to Tattletale!</h3>
+  <p>
+    Tattletale is a tool to track the status and completion time
+    of your cron jobs. If you already have a profile, please sign
+    in with your email address or create a new user now.
+  </p>
   <div id="form">
     <%= form_tag({:action => 'create'}) do %>
       <div class="field">
@@ -10,7 +15,7 @@
       </div>
       <div class="field">
         <%= submit_tag 'Sign-in', :class => 'submit btn btn-small login' %>
-        <%= link_to "Create a new account", :signup, :class => 'btn btn-small' %>
+        <%= link_to "Create a new profile", :signup, :class => 'btn btn-small' %>
       </div>
     <% end %>
 

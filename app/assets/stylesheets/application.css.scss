@@ -78,21 +78,6 @@ div#header {
     float: right;
 
   }
-
-  // ul{
-  //   list-style-type: none;
-  //   text-align: right;
-  //   float: right;
-  //   font-size: 1.50em;
-  //   margin: .75em;
-  //   padding: 0;
-
-  //   li{
-  //     display: inline;
-  //     text-align: right;
-  //     padding: 0 0.50em;
-  //   }
-  // }
 }
 
 div.job, div.user, div.session {
@@ -112,6 +97,41 @@ div.job, div.user, div.session {
 
 
 div#form{
+
+  dev#new-session {
+    text-align: center;
+  }
+
+  div.field, div.actions {
+    label {
+      text-align: left;
+      font-weight: 500;
+      font-size: 1.15em;
+    }
+
+    input[type="text"], textarea {
+      width: 80%;
+      min-width: 0;
+    }
+
+    input[type="text"]#job_url {
+      width: 55%;
+    }
+
+    span.prefix {
+      font-size: 1.2em;
+      display: inline-block;
+    }
+
+    textarea {
+      height: 120px;
+      min-height: 0;
+    }
+
+    padding: 1em 0;
+    text-align: center;
+  }
+
   margin-left: auto;
   margin-right: auto;
 }
@@ -141,4 +161,8 @@ div#form{
 .dropdown-menu li a:focus.danger{
   color: #fff !important;
   background: rgba(192, 57, 43, 1.0) !important;
+}
+
+p.sign-in {
+  font-size: 1.25em;
 }
