@@ -1,8 +1,6 @@
 class Checkin < ActiveRecord::Base
   acts_as_api
 
-  attr_accessible :job_id, :timestamp
-
   belongs_to :job
 
   validates_presence_of :job_id
