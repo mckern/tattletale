@@ -1,8 +1,6 @@
 require 'valid_email'
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email
-
   # Each user can own many jobs
   has_many :jobs, :dependent => :destroy
 
@@ -18,5 +16,4 @@ class User < ActiveRecord::Base
     return @user unless @user.nil?
     return false
   end
-
 end
