@@ -24,11 +24,17 @@
       <%= f.text_field :email %>
     </div>
     <div class="actions">
-      <%= f.submit %>
-      <%= f.button(
-            "Delete user",
+      <%= f.submit :class => 'submit btn btn-small login' %>
+      <%
+        warning = "Are you sure? If you delete " +
+                  "your profile, then all tracked Jobs associated " +
+                  "with your profile will also be deleted."
+
+      %>
+      <%= f.button "Delete user profile",
+            :class => 'submit btn btn-small btn-danger login',
             :method => :delete,
-            :confirm => 'Are you sure?') unless @user.new_record?
+            :confirm => warning unless @user.new_record?
       %>
     </div>
   </div>

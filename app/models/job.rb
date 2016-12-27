@@ -23,12 +23,10 @@ end
 class Job < ActiveRecord::Base
   acts_as_api
 
-  attr_accessible :active, :description, :name, :cron_string, :url
-
   belongs_to :user
   has_many :checkins, :dependent => :destroy
 
-  default_value_for :url, SecureRandom.hex
+  after_initialize :random_uri
 
   # Validate that name, description, and url are set
   validates_presence_of :name, :description, :url, :cron_string
@@ -39,7 +37,7 @@ class Job < ActiveRecord::Base
                       :allow_blank => false
 
   validates_format_of :url,
-                      :with => /^[a-z0-9\-_.]+$/i,
+                      :with => /\A[a-z0-9\-_.]+\z/i,
                       :message => %w[can only contain letters, numbers, or periods, dashes, and underscores]
 
   validates :cron_string,
@@ -51,8 +49,8 @@ class Job < ActiveRecord::Base
             :if => :url?
 
   # Scopes for convenience
-  scope :descending, order('jobs.name DESC')
-  scope :ascending, order('jobs.name')
+  scope :descending, lambda { order('jobs.name DESC') }
+  scope :ascending, lambda { order('jobs.name') }
 
   api_accessible :job do |t|
     t.add :name
@@ -139,4 +137,10 @@ class Job < ActiveRecord::Base
     [id, name.parameterize].join('-')
   end
   alias_method :to_p, :to_param
+
+  private
+
+  def random_uri
+    self.url ||= SecureRandom.hex
+  end
 end

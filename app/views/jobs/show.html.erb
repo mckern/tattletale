@@ -11,7 +11,7 @@
       <li><%= link_to "delete", @job, :method => :delete, :confirm => 'Are you sure?' %></li>
     </ul>
   </span>
-  <h2 class="job_<%= @job.status -%>"><%= @job.name %></h2>
+  <h3 class="job_<%= @job.status -%>"><%= @job.name %></h3>
   <p class="description">
     <%= @job.description %>
   </p>

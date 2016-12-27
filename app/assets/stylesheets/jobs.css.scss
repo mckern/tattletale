@@ -6,10 +6,20 @@ div.job{
   // Default background & formatting is specified at
   // the application layer; make global changes there.
 
+  a {
+    &:hover, &:focus {
+      .danger {
+        color: #fff !important;
+        background-color: rgba(192, 57, 43, 1.0) !important;
+        background-image: none !important;
+      }
+    }
+  }
+
   h2{
     margin: 0;
     clear: none;
-    padding: 0.25em 0 0.25em 32px;
+    padding: 0.25em 0;
     line-height: 1em;
   }
   &.edit h2{ padding: 0.25em 0 0.25em 0; }
@@ -43,27 +53,39 @@ div.job{
     }
   }
 
-  &.job_ok h2,
-  h2.job_ok {
-    background: url(/assets/green.png) no-repeat left center;
+  &.job_ok {
+    border: 1px solid #21a256;
+    background-color: rgba(46, 204, 113, 0.15);
+  }
+  &.job_ok i.icon-ok {
+    color: rgba(39, 174, 96, 1.0);
   }
 
-  &.job_paused { background: #aaa url(/assets/paused_gradient.jpg) repeat-x top left; }
-  &.job_paused h2,
-  h2.job_paused {
-    background: url(/assets/pause.png) no-repeat left center;
+  &.job_paused {
+    border: 1px solid #49494d;
+    background-color: rgba(199, 205, 209, 1.0);
+
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 9%, rgba(255,255,255,.4) 9%, rgba(255,255,255,.4) 16%);
+    background-image: -webkit-repeating-linear-gradient(45deg, transparent, transparent 9%, rgba(255,255,255,.4) 9%, rgba(255,255,255,.4) 16%);
+  }
+  &.job_paused i.icon-paused {
+    color: rgba(92, 92, 97, 1.0);
   }
 
-  &.job_pending { background: #aaa url(/assets/grey_gradient.jpg) repeat-x top left; }
-  &.job_pending h2,
-  h2.job_pending {
-    background: url(/assets/grey.png) no-repeat left center;
+  &.job_pending {
+    border: 1px solid #212f3d;
+    background-color: rgba(44, 62, 80, 0.10);
+  }
+  &.job_pending i.icon-pending {
+    color: rgba(44, 62, 80, 1.0);
   }
 
-  &.job_late { background: #aaa url(/assets/red_gradient.jpg) repeat-x top left; }
-  &.job_late h2,
-  h2.job_late {
-    background: url(/assets/red.png) no-repeat left center;
+  &.job_late {
+    border: 1px solid #b12325;
+    background-color: rgba(231, 76, 60, 0.15);
+  }
+  &.job_late i.icon-late {
+    color: rgba(192, 57, 43, 1.0);
   }
 
   dl {
@@ -96,9 +118,9 @@ div.job{
     }
   }
 
-  span.details {
+  .details {
     display: inline-block;
     float: right;
-    font-weight: 700;
+    // font-size: 1.5em;
   }
 }

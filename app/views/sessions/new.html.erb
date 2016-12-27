@@ -1,4 +1,25 @@
-<div id="new_session" class="new session">
-  <h2>Please log into Tattletale</h2>
-  <%= render :partial => 'form' %>
+<div id="new_session" class="new session sign-in">
+  <h3>Welcome to Tattletale!</h3>
+  <p>
+    Tattletale is a tool to track the status and completion time
+    of your cron jobs. If you already have a profile, please sign
+    in with your email address or create a new user now.
+  </p>
+  <div id="form">
+    <%= form_tag({:action => 'create'}) do %>
+      <div class="field">
+        <%= text_field_tag :email, nil,
+              :placeholder => 'e-mail address',
+              :class => 'login text'
+        %>
+      </div>
+      <div class="field">
+        <%= submit_tag 'Sign-in', :class => 'submit btn btn-small login' %>
+        <%= link_to "Create a new profile", :signup, :class => 'btn btn-small' %>
+      </div>
+    <% end %>
+
+
+  </div>
+
 </div>

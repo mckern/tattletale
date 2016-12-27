@@ -2,7 +2,6 @@
   <% if @job.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@job.errors.count, "error") %> kept this job from being saved:</h2>
-
       <ul>
       <% @job.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,29 +10,32 @@
     </div>
   <% end %>
 
-<div id="form">
+<div id="form" class="new">
   <div class="field">
-    <%= f.label :name, "Job name:" %>
+    <%= f.label :name, "What is this Job's name?" %>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :url, "URL string (valid characters are a-z, 0-9, _, and .)" %>
+    <%= f.label :url,
+        %Q(Do you want to use a custom URL identifer for this Job?<br />(hint: please use <a href="http://en.wikipedia.org/wiki/Uniform_resource_locator#List_of_allowed_URL_characters">unreserved URL characters</a>)).html_safe
+    %>
+    <span class='form prefix'><%= root_url %></span>
     <%= f.text_field :url %>
   </div>
 
   <div class="field">
-    <%= f.label :cron_string, "Job's cron schedule (just paste from crontab):" %>
+    <%= f.label :cron_string, "What is this Job's cron schedule?<br />(hint: just paste it from crontab)".html_safe %>
     <%= f.text_field :cron_string %>
   </div>
 
   <div class="field">
-    <%= f.label :description, "Job description:" %>
-    <%= f.text_area :description %>
+    <%= f.label :description, "What is this Job's description?" %>
+    <%= f.text_area :description, :size => 20 %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= submit_tag 'Save this job', :class => 'submit btn btn-small login' %>
   </div>
 </div>
 <% end %>
