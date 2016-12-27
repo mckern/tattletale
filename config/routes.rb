@@ -4,9 +4,9 @@ Tattletale::Application.routes.draw do
   resources :users
 
   get '/login' => 'sessions#new', :as => :login
-  match '/logout' => 'sessions#destroy', :as => :logout
+  match '/logout' => 'sessions#destroy', :as => :logout, via: [:get, :post]
 
-  get '/signup', to: 'users#new', :as => 'signup'
+  get '/signup', to: 'users#new', as: 'signup'
 
   post '/jobs/:id/toggle' => 'jobs#toggle', :as => :toggle
 
@@ -15,9 +15,9 @@ Tattletale::Application.routes.draw do
 
   get '/dashboard' => 'dashboard#index', :as => :dashboard
 
-  match '/:url' => 'jobs#checkin', :as => :checkin
+  match '/:url' => 'jobs#checkin', :as => :checkin, via: [:get, :post]
 
-  root :to => redirect('/dashboard')
+  root to: redirect('/dashboard')
 
   # See how all your routes lay out with "rake routes"
 
