@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   skip_before_filter :set_user, only: %i[new create]
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :user)
   end
   private :user_params
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
 
     respond_to do |format|
       if @user.save
