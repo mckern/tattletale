@@ -31,6 +31,10 @@ gem 'sass-rails', '~> 4.0'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
+group :deveopment, :test do
+  gem "rubocop", "~> 0.49", require: false
+end
+
 # Puma is a perfectly fine application server out of the box.
 group :puma do
   gem 'puma'
