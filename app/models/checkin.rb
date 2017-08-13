@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Checkin < ActiveRecord::Base
   acts_as_api
 
@@ -5,9 +7,9 @@ class Checkin < ActiveRecord::Base
 
   validates_presence_of :job_id
 
-  scope :last_week, lambda { where(:created_at => 1.week.ago..DateTime.now.end_of_day) }
+  scope :last_week, -> { where(created_at: 1.week.ago..DateTime.now.end_of_day) }
 
   api_accessible :checkins_with_job do |t|
-    t.add :created_at, :as => :timestamp
+    t.add :created_at, as: :timestamp
   end
 end

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class JobsController < ApplicationController
-  skip_before_filter :logged_in?, :only => :checkin
-  skip_before_filter :set_user, :only => :checkin
+  skip_before_filter :logged_in?, only: :checkin
+  skip_before_filter :set_user, only: :checkin
 
   def index
     @jobs = @user.jobs.reload
@@ -19,7 +21,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render_for_api :checkins_with_job, :json => @job, :root => :job }
+      format.json { render_for_api :checkins_with_job, json: @job, root: :job }
     end
   end
 
@@ -46,7 +48,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-        format.html { redirect_to :dashboard, notice: 'Job was successfully created.' }
+        format.html { redirect_to :dashboard, notice: "Job was successfully created." }
         format.json { render json: @job, status: :created, location: @job }
       else
         format.html { render action: "new" }
@@ -62,7 +64,7 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to @job, notice: "Job was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,18 +80,18 @@ class JobsController < ApplicationController
     @job.destroy
 
     respond_to do |format|
-      format.html { redirect_to :dashboard, notice: 'Job was successfully deleted.' }
+      format.html { redirect_to :dashboard, notice: "Job was successfully deleted." }
       format.json { head :no_content }
     end
   end
 
   def toggle
     @job = @user.jobs.find_by_id!(params[:id])
-    @job.toggle 'active'
+    @job.toggle "active"
 
     respond_to do |format|
       if @job.update(active: @job.active)
-        format.html { redirect_to request.referer, notice: 'Job was successfully updated.' }
+        format.html { redirect_to request.referer, notice: "Job was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -103,14 +105,14 @@ class JobsController < ApplicationController
       @job = Job.find_by_url!(params[:url])
       @job.checkins << Checkin.new unless @job.paused?
     rescue
-      redirect_to :root, :alert => @job.errors and return
+      redirect_to(:root, alert: @job.errors) && (return)
     end
 
     respond_to do |format|
-      format.html {
+      format.html do
         render text: "OK\n",
-        content_type: 'text/plain'
-      }
+               content_type: "text/plain"
+      end
     end
   end
 

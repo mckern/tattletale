@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
-  skip_before_filter :logged_in?, :only => [:new, :create]
-  skip_before_filter :set_user, :only => [:new, :create]
+  skip_before_filter :logged_in?, only: %i[new create]
+  skip_before_filter :set_user, only: %i[new create]
 
   def user_params
     params.require(:user).permit(:name, :email)
@@ -32,10 +34,10 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html {
+        format.html do
           session[:user_email] = @user.email
-          redirect_to :root, notice: 'User was successfully created.'
-        }
+          redirect_to :root, notice: "User was successfully created."
+        end
         format.json { render json: @user, status: :created, location: @user }
       else
         format.html { render action: "new" }
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update_attributes(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: "User was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

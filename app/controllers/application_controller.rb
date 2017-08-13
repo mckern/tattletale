@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :logged_in?, :except => [:login, :signup]
-  before_filter :set_user, :except => [:login, :signup]
+  before_filter :logged_in?, except: %i[login signup]
+  before_filter :set_user, except: %i[login signup]
 
-  def new
-  end
+  def new; end
 
-  def create
-  end
+  def create; end
 
   protected
 
@@ -29,9 +29,9 @@ class ApplicationController < ActionController::Base
     @user = User.find_by_email session[:user_email]
   end
 
-  alias :std_redirect_to :redirect_to
+  alias std_redirect_to redirect_to
   def redirect_to(*args)
-     flash.keep
-     std_redirect_to *args
+    flash.keep
+    std_redirect_to *args
   end
 end

@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class CreateCheckins < ActiveRecord::Migration
   def change
     create_table :checkins do |t|
-      t.integer :job_id, :null => false
+      t.integer :job_id, null: false
       t.string :status
 
       t.timestamps

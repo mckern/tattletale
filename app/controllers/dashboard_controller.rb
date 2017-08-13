@@ -1,5 +1,6 @@
-class DashboardController < ApplicationController
+# frozen_string_literal: true
 
+class DashboardController < ApplicationController
   def index
     @jobs = @user.jobs.reload
 
@@ -8,5 +9,4 @@ class DashboardController < ApplicationController
       format.json { render json: @jobs }
     end
   end
-
 end

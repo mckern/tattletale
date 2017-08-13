@@ -1,4 +1,6 @@
 # -*- encoding : utf-8 -*-
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   # No need to filter the session controller
   skip_before_filter :logged_in?
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
 
     if @user
       session[:user_email] = @user.email
-      redirect_to :root and return
+      redirect_to(:root) && return
     else
       # The user wasn't found; see if they want to sign up
       redirect_to(:signup)
@@ -23,7 +25,7 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to :login
   end
-  alias :delete :destroy
+  alias delete destroy
 
   def index
     # redirect_to :root

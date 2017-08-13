@@ -1,5 +1,7 @@
-require 'cron_parser'
-require 'securerandom'
+# frozen_string_literal: true
+
+require "cron_parser"
+require "securerandom"
 
 class CronLineValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
@@ -14,7 +16,7 @@ end
 
 class ControllerNameValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    if %q[users jobs checkins].include? value.downcase
+    if "users jobs checkins".include? value.downcase
       record.errors[attribute] << %w[cannot overlap with a controller name]
     end
   end
@@ -24,7 +26,7 @@ class Job < ActiveRecord::Base
   acts_as_api
 
   belongs_to :user
-  has_many :checkins, :dependent => :destroy
+  has_many :checkins, dependent: :destroy
 
   after_initialize :random_uri
 
@@ -32,25 +34,25 @@ class Job < ActiveRecord::Base
   validates_presence_of :name, :description, :url, :cron_string
   validates_uniqueness_of :name, :url
   validates_length_of :url,
-                      :minimum => 12,
-                      :maximum => 32,
-                      :allow_blank => false
+                      minimum: 12,
+                      maximum: 32,
+                      allow_blank: false
 
   validates_format_of :url,
-                      :with => /\A[a-z0-9\-_.]+\z/i,
-                      :message => %w[can only contain letters, numbers, or periods, dashes, and underscores]
+                      with: /\A[a-z0-9\-_.]+\z/i,
+                      message: %w[can only contain letters numbers or periods dashes and underscores]
 
   validates :cron_string,
-            :cron_line => true,
-            :if => :cron_string?
+            cron_line: true,
+            if: :cron_string?
 
   validates :url,
-            :controller_name => true,
-            :if => :url?
+            controller_name: true,
+            if: :url?
 
   # Scopes for convenience
-  scope :descending, lambda { order('jobs.name DESC') }
-  scope :ascending, lambda { order('jobs.name') }
+  scope :descending, -> { order("jobs.name DESC") }
+  scope :ascending, -> { order("jobs.name") }
 
   api_accessible :job do |t|
     t.add :name
@@ -66,11 +68,11 @@ class Job < ActiveRecord::Base
     t.add :description
     t.add :next_run
     t.add :last_seen
-    t.add 'checkins.last_week', :as => :checkins
+    t.add "checkins.last_week", as: :checkins
   end
 
   # Figure out the last and next times in this schedule
-  [:last, :next].each do |name|
+  %i[last next].each do |name|
     # Defining default values for methods
     # created this way is "dicey":
     # http://apidock.com/ruby/Module/define_method
@@ -80,8 +82,8 @@ class Job < ActiveRecord::Base
       Time.at runtime
     end
   end
-  alias_method :next_run, :next
-  alias_method :last_run, :last
+  alias next_run next
+  alias last_run last
 
   # If there haven't been any check-ins, return false
   def has_checked_in?
@@ -94,10 +96,10 @@ class Job < ActiveRecord::Base
 
   # If there haven't been any check-ins, return false
   def status
-    return 'paused' unless active?
-    return 'pending' unless has_checked_in?
-    return 'ok' unless late?
-    'late'
+    return "paused" unless active?
+    return "pending" unless has_checked_in?
+    return "ok" unless late?
+    "late"
   end
 
   def late?
@@ -113,14 +115,14 @@ class Job < ActiveRecord::Base
     threshold = (next_run(last_run) - last_run).to_i
 
     # Math!
-    ( last_run - last_seen ).to_i > threshold
+    (last_run - last_seen).to_i > threshold
   end
 
   # Return a Time object corresponding
   # to the time the job last checked in
   def last_seen
     return nil if checkins.empty?
-    last_checkin = checkins.sort_by { |this_checkin| this_checkin.created_at }.last
+    last_checkin = checkins.sort_by(&:created_at).last
     Time.at last_checkin.created_at
   end
 
@@ -131,12 +133,12 @@ class Job < ActiveRecord::Base
   def to_string
     name
   end
-  alias_method :to_s, :to_string
+  alias to_s to_string
 
   def to_param
-    [id, name.parameterize].join('-')
+    [id, name.parameterize].join("-")
   end
-  alias_method :to_p, :to_param
+  alias to_p to_param
 
   private
 
